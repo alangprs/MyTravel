@@ -33,7 +33,17 @@ class ViewController: UIViewController {
                 if let data = data {
                     do {
                         let searchResponse = try JSONDecoder().decode(SearchResponse.self, from: data)
-                        self.tripData = searchResponse.xmlHead.infos.info!
+                        
+                        guard let searchResponse = searchResponse.xmlHead.infos.info else {
+                            print("ViewController getNetworkData searchResponse get error")
+                            return
+                        }
+                        self.tripData = searchResponse
+                        
+                        DispatchQueue.main.async {
+                            self.collectionView.reloadData()
+                        }
+                        
                     } catch {
                         print("ViewController getNetworkData get data catch", error)
                     }
@@ -70,7 +80,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-//        cell.convertCell(data: tripData[indexPath.item])
+        cell.convertCell(data: tripData[indexPath.item])
         
         return cell
     }
