@@ -65,8 +65,6 @@
 				128F1C22279EAED400987B81 /* View */,
 				128F1C0E279EA26400987B81 /* AppDelegate.swift */,
 				128F1C10279EA26400987B81 /* SceneDelegate.swift */,
-				128F1C12279EA26400987B81 /* ViewController.swift */,
-				128F1C14279EA26400987B81 /* Main.storyboard */,
 				128F1C17279EA26600987B81 /* Assets.xcassets */,
 				128F1C19279EA26600987B81 /* LaunchScreen.storyboard */,
 				128F1C1C279EA26600987B81 /* Info.plist */,
@@ -85,6 +83,7 @@
 		128F1C23279EAEDA00987B81 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				128F1C34279FC0C100987B81 /* MainViewController */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -103,6 +102,15 @@
 				128F1C28279EB2B900987B81 /* TopBarView.xib */,
 			);
 			path = TopBarView;
+			sourceTree = "<group>";
+		};
+		128F1C34279FC0C100987B81 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				128F1C12279EA26400987B81 /* ViewController.swift */,
+				128F1C14279EA26400987B81 /* Main.storyboard */,
+			);
+			path = MainViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
