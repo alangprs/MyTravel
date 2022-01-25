@@ -18,21 +18,19 @@ struct SearchResponse: Codable {
 
 // MARK: - XMLHead
 struct XMLHead: Codable {
-    let listname, language: String
-    let updatetime: Date
+    let listname, language: String?
     let infos: Infos
 
     enum CodingKeys: String, CodingKey {
         case listname = "Listname"
         case language = "Language"
-        case updatetime = "Updatetime"
         case infos = "Infos"
     }
 }
 
 // MARK: - Infos
 struct Infos: Codable {
-    let info: [Info]
+    let info: [Info]?
 
     enum CodingKeys: String, CodingKey {
         case info = "Info"
@@ -41,14 +39,14 @@ struct Infos: Codable {
 
 // MARK: - Info
 struct Info: Codable {
-    let id, name: String
-    let toldescribe: String
+    let id, name: String?
+    let toldescribe: String?
     let infoDescription: String?
-    let tel: String
+    let tel: String?
     let add: String?
     let region: Region?
     let town: String?
-    let opentime: String
+    let opentime: String?
     let picture1: String?
     let picdescribe1: String?
     let picture2: String?
@@ -56,13 +54,12 @@ struct Info: Codable {
     let picture3: String?
     let picdescribe3: String?
     let map: String?
-    let px, py: Double
+    let px, py: Float?
     let orgclass: Orgclass?
-    let class1: String
+    let class1: String?
     let class2, class3, level: String?
     let website: String?
     let ticketinfo: String?
-    let changetime: Date?
 
     enum CodingKeys: String, CodingKey {
         case id = "Id"
@@ -90,7 +87,6 @@ struct Info: Codable {
         case level = "Level"
         case website = "Website"
         case ticketinfo = "Ticketinfo"
-        case changetime = "Changetime"
     }
 }
 
