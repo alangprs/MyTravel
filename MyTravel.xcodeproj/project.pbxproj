@@ -17,6 +17,7 @@
 		128F1C29279EB2B900987B81 /* TopBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128F1C28279EB2B900987B81 /* TopBarView.xib */; };
 		128F1C38279FC12400987B81 /* ViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C36279FC12400987B81 /* ViewControllerCell.swift */; };
 		128F1C39279FC12400987B81 /* ViewControllerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128F1C37279FC12400987B81 /* ViewControllerCell.xib */; };
+		128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C3D279FD71400987B81 /* NetworkStruct-Attractions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		128F1C28279EB2B900987B81 /* TopBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopBarView.xib; sourceTree = "<group>"; };
 		128F1C36279FC12400987B81 /* ViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCell.swift; sourceTree = "<group>"; };
 		128F1C37279FC12400987B81 /* ViewControllerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ViewControllerCell.xib; sourceTree = "<group>"; };
+		128F1C3D279FD71400987B81 /* NetworkStruct-Attractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStruct-Attractions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		128F1C24279EAF1B00987B81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				128F1C3A279FD62B00987B81 /* NetworkStruct */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -125,6 +128,14 @@
 				128F1C37279FC12400987B81 /* ViewControllerCell.xib */,
 			);
 			path = ViewControllerCell;
+			sourceTree = "<group>";
+		};
+		128F1C3A279FD62B00987B81 /* NetworkStruct */ = {
+			isa = PBXGroup;
+			children = (
+				128F1C3D279FD71400987B81 /* NetworkStruct-Attractions.swift */,
+			);
+			path = NetworkStruct;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */,
 				128F1C13279EA26400987B81 /* ViewController.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
