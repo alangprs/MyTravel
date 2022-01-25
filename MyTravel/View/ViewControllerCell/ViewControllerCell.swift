@@ -18,17 +18,12 @@ class ViewControllerCell: UICollectionViewCell {
     func convertCell(data: Any) {
         
         //記得把data 轉型內容改成 str資料
-        guard let photoName = data as? UIImage else {
+        guard let data = data as? Info else {
             print("ViewControllerCell convertCell get photoName fail")
             return
         }
-        guard let title = data as? String else {
-            print("ViewControllerCell convertCell get title fail")
-            return
-        }
         
-        photoImageView.image = photoName
-        titleLabel.text = title
+        titleLabel.text = data.name
     }
 
 }

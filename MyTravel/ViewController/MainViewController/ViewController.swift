@@ -12,10 +12,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBarView: TopBarView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var tripData: [Info] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         uiSetup()
+        getNetworkData()
     }
     
     func uiSetup() {
@@ -23,8 +26,26 @@ class ViewController: UIViewController {
         collectionViewSetup()
     }
 
-
+    ///打api 拿觀光局資料
+    func getNetworkData() {
+        if let url = URL(string: kAttractions) {
+            URLSession.shared.dataTask(with: url) { data, response, error in
+                if let data = data {
+                    do {
+                        let searchResponse = try JSONDecoder().decode(SearchResponse.self, from: data)
+                        self.tripData = searchResponse.xmlHead.infos.info!
+                    } catch {
+                        print("ViewController getNetworkData get data catch", error)
+                    }
+                } else {
+                    print("ViewController getNetworkData get data error")
+                }
+            }.resume()
+        }
+    }
 }
+
+//MARK: -  擴充CollectionView
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -39,7 +60,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return tripData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -48,6 +69,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
             print("ViewController collectionView get ViewControllerCell fail")
             return UICollectionViewCell()
         }
+        
+//        cell.convertCell(data: tripData[indexPath.item])
         
         return cell
     }
