@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var topBarView: TopBarView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    let layout = UICollectionViewFlowLayout()
     var tripData: [Info] = []
     
     override func viewDidLoad() {
@@ -57,7 +58,8 @@ class ViewController: UIViewController {
 
 //MARK: -  擴充CollectionView
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     
     func collectionViewSetup() {
         collectionView.delegate = self
@@ -70,21 +72,33 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return tripData.count
+        return RegionSelect.allCases.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        //取得cell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ViewControllerCell.self)", for: indexPath) as? ViewControllerCell else {
-            print("ViewController collectionView get ViewControllerCell fail")
+            print("ViewController collectionView get cell fail")
             return UICollectionViewCell()
         }
         
-        cell.convertCell(data: tripData[indexPath.item])
+        //取得定義title內容
+        guard let functions = RegionSelect(rawValue: indexPath.item) else {
+            print("ViewController collectionView get functions fail")
+            return UICollectionViewCell()
+        }
+        
+        cell.convertCell(data: functions)
         
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //設定item尺寸
+        
+        layout.itemSize = CGSize(width: view.frame.width / 3, height: 100)
+        return layout.itemSize
+    }
 }
 
