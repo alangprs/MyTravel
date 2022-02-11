@@ -20,6 +20,8 @@
 		128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C3D279FD71400987B81 /* NetworkStruct-Attractions.swift */; };
 		128F1C40279FE07600987B81 /* NetworkAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C3F279FE07600987B81 /* NetworkAddress.swift */; };
 		128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C4227A0E80C00987B81 /* RegionEnum.swift */; };
+		128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C7927A2679D00987B81 /* HeaderView.swift */; };
+		128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128F1C7A27A2679D00987B81 /* HeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		128F1C3D279FD71400987B81 /* NetworkStruct-Attractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkStruct-Attractions.swift"; sourceTree = "<group>"; };
 		128F1C3F279FE07600987B81 /* NetworkAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAddress.swift; sourceTree = "<group>"; };
 		128F1C4227A0E80C00987B81 /* RegionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEnum.swift; sourceTree = "<group>"; };
+		128F1C7927A2679D00987B81 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		128F1C7A27A2679D00987B81 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		128F1C22279EAED400987B81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				128F1C7827A2678500987B81 /* HeaderView */,
 				128F1C35279FC10800987B81 /* ViewControllerCell */,
 				128F1C25279EB19000987B81 /* TopBarView */,
 			);
@@ -152,6 +157,15 @@
 			path = RegionEnum;
 			sourceTree = "<group>";
 		};
+		128F1C7827A2678500987B81 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				128F1C7927A2679D00987B81 /* HeaderView.swift */,
+				128F1C7A27A2679D00987B81 /* HeaderView.xib */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,6 +227,7 @@
 				128F1C1B279EA26600987B81 /* LaunchScreen.storyboard in Resources */,
 				128F1C18279EA26600987B81 /* Assets.xcassets in Resources */,
 				128F1C39279FC12400987B81 /* ViewControllerCell.xib in Resources */,
+				128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */,
 				128F1C29279EB2B900987B81 /* TopBarView.xib in Resources */,
 				128F1C16279EA26400987B81 /* Main.storyboard in Resources */,
 			);
@@ -226,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */,
+				128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */,
 				128F1C13279EA26400987B81 /* ViewController.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
