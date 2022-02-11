@@ -11,9 +11,31 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var topBarView: TopBarView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var loadingView: LoadingView!
     let layout = UICollectionViewFlowLayout()
+    
+    //MRAK: - 各縣市資料暫存
     var tripData: [Info] = []
+    var taipaiArea: [Info] = []
+    var newTaipei: [Info] = []
+    var keelung: [Info] = []
+    var taoyuan: [Info] = []
+    var hsinchu: [Info] = []
+    var miaoli: [Info] = []
+    var taichung: [Info] = []
+    var changhua: [Info] = []
+    var nantou: [Info] = []
+    var yunlin: [Info] = []
+    var chiayi: [Info] = []
+    var tainan: [Info] = []
+    var kaohsiung: [Info] = []
+    var pingtung: [Info] = []
+    var yilan: [Info] = []
+    var hualien: [Info] = []
+    var tautung: [Info] = []
+    var penghu: [Info] = []
+    var kinmen: [Info] = []
+    var lienchiang: [Info] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +45,22 @@ class ViewController: UIViewController {
     }
     
     func uiSetup() {
+        loadViewSetup()
         topBarView.setTitle(title: "首頁")
         collectionViewSetup()
     }
+    
+    ///loadView 設定
+    func loadViewSetup() {
+        let loadView = LoadingView()
+        view.addSubview(loadView)
+        self.loadingView = loadView
+    }
+    
 
     ///打api 拿觀光局資料
     func getNetworkData() {
+        loadingView.startAnimating()
         if let url = URL(string: kAttractions) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
@@ -40,18 +72,48 @@ class ViewController: UIViewController {
                             return
                         }
                         self.tripData = searchResponse
-                        
+                        self.filterArea()
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
+                            self.loadingView.stopAnimating()
                         }
                         
                     } catch {
                         print("ViewController getNetworkData get data catch", error)
+                        self.loadingView.stopAnimating()
                     }
                 } else {
                     print("ViewController getNetworkData get data error")
+                    self.loadingView.stopAnimating()
                 }
             }.resume()
+        }
+    }
+    
+    ///過濾選擇到的地區
+    func filterArea() {
+        //判斷是否取得資料了
+        if tripData.count != 0 {
+            taipaiArea = tripData.filter({$0.region == Region.臺北市})
+            newTaipei = tripData.filter({$0.region == Region.新北市})
+            keelung = tripData.filter({$0.region == Region.基隆市})
+            taoyuan = tripData.filter({$0.region == Region.桃園市})
+            hsinchu = tripData.filter({$0.region == Region.新竹縣 || $0.region == Region.新竹市})
+            miaoli = tripData.filter({$0.region == Region.苗栗縣})
+            taichung = tripData.filter({$0.region == Region.臺中市})
+            changhua = tripData.filter({$0.region == Region.彰化縣})
+            nantou = tripData.filter({$0.region == Region.南投縣})
+            yunlin = tripData.filter({$0.region == Region.雲林縣})
+            chiayi = tripData.filter({$0.region == Region.嘉義市 || $0.region == Region.嘉義縣})
+            tainan = tripData.filter({$0.region == Region.臺南市})
+            kaohsiung = tripData.filter({$0.region == Region.高雄市})
+            pingtung = tripData.filter({$0.region == Region.屏東縣})
+            yilan = tripData.filter({$0.region == Region.宜蘭縣})
+            hualien = tripData.filter({$0.region == Region.花蓮縣})
+            tautung = tripData.filter({$0.region == Region.臺東縣})
+            penghu = tripData.filter({$0.region == Region.澎湖縣})
+            kinmen = tripData.filter({$0.region == Region.金門縣})
+            lienchiang = tripData.filter({$0.region == Region.連江縣})
         }
     }
 }
@@ -98,6 +160,17 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         //設定item尺寸
         layout.itemSize = CGSize(width: view.frame.width / 2.5, height: 100)
         return layout.itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let item = RegionSelect(rawValue: indexPath.item) else {
+            print("error")
+            return
+        }
+        
+        //將點選到的cell 相對應城市資料傳到下一頁
+        print("測試", item.titleString)
     }
 }
 
