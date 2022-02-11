@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderView" customModule="MyTravel" customModuleProvider="target">
+            <connections>
+                <outlet property="titleLabel" destination="Qwd-RM-PAh" id="2Lr-fo-Czz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwd-RM-PAh">
+                    <rect key="frame" x="10" y="5" width="300" height="40"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Qwd-RM-PAh" secondAttribute="bottom" constant="5" id="2Sr-Xc-TBD"/>
+                <constraint firstItem="Qwd-RM-PAh" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="5HX-Em-PXG"/>
+                <constraint firstAttribute="trailing" secondItem="Qwd-RM-PAh" secondAttribute="trailing" constant="10" id="tBG-l8-MZb"/>
+                <constraint firstItem="Qwd-RM-PAh" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="5" id="utN-2E-Tu6"/>
+            </constraints>
+            <point key="canvasLocation" x="133" y="86"/>
+        </collectionReusableView>
+    </objects>
+</document>
