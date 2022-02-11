@@ -11,7 +11,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var topBarView: TopBarView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    var loadingView: LoadingView!
     let layout = UICollectionViewFlowLayout()
     
     //MRAK: - 各縣市資料暫存
@@ -45,12 +45,22 @@ class ViewController: UIViewController {
     }
     
     func uiSetup() {
+        loadViewSetup()
         topBarView.setTitle(title: "首頁")
         collectionViewSetup()
     }
+    
+    ///loadView 設定
+    func loadViewSetup() {
+        let loadView = LoadingView()
+        view.addSubview(loadView)
+        self.loadingView = loadView
+    }
+    
 
     ///打api 拿觀光局資料
     func getNetworkData() {
+        loadingView.startAnimating()
         if let url = URL(string: kAttractions) {
             URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
@@ -65,13 +75,16 @@ class ViewController: UIViewController {
                         self.filterArea()
                         DispatchQueue.main.async {
                             self.collectionView.reloadData()
+                            self.loadingView.stopAnimating()
                         }
                         
                     } catch {
                         print("ViewController getNetworkData get data catch", error)
+                        self.loadingView.stopAnimating()
                     }
                 } else {
                     print("ViewController getNetworkData get data error")
+                    self.loadingView.stopAnimating()
                 }
             }.resume()
         }
@@ -147,6 +160,17 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         //設定item尺寸
         layout.itemSize = CGSize(width: view.frame.width / 2.5, height: 100)
         return layout.itemSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let item = RegionSelect(rawValue: indexPath.item) else {
+            print("error")
+            return
+        }
+        
+        //將點選到的cell 相對應城市資料傳到下一頁
+        print("測試", item.titleString)
     }
 }
 
