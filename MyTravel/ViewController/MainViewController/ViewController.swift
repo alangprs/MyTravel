@@ -170,7 +170,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
         
         //將點選到的cell 相對應城市資料傳到下一頁
-        print("測試", item.titleString)
+        let controller = TouristAreaViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
