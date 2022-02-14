@@ -158,7 +158,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //設定item尺寸
-        layout.itemSize = CGSize(width: view.frame.width / 2.5, height: 100)
+        layout.itemSize = CGSize(width: view.frame.width / 4, height: 80)
         return layout.itemSize
     }
     
@@ -170,7 +170,8 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
         
         //將點選到的cell 相對應城市資料傳到下一頁
-        print("測試", item.titleString)
+        let controller = TouristAreaViewController()
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 

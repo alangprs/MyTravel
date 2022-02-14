@@ -23,6 +23,10 @@
 		128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C4227A0E80C00987B81 /* RegionEnum.swift */; };
 		128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C7927A2679D00987B81 /* HeaderView.swift */; };
 		128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128F1C7A27A2679D00987B81 /* HeaderView.xib */; };
+		4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */; };
+		4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */; };
+		4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705B27B9074300782EF3 /* TouristAreaCell.swift */; };
+		4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705C27B9074300782EF3 /* TouristAreaCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		128F1C4227A0E80C00987B81 /* RegionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEnum.swift; sourceTree = "<group>"; };
 		128F1C7927A2679D00987B81 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		128F1C7A27A2679D00987B81 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaViewController.swift; sourceTree = "<group>"; };
+		4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaViewController.xib; sourceTree = "<group>"; };
+		4D71705B27B9074300782EF3 /* TouristAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaCell.swift; sourceTree = "<group>"; };
+		4D71705C27B9074300782EF3 /* TouristAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,7 @@
 		128F1C22279EAED400987B81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D71705A27B9072200782EF3 /* TouristAreaCell */,
 				122237DA27B6609F00A772A5 /* LoadingView */,
 				128F1C7827A2678500987B81 /* HeaderView */,
 				128F1C35279FC10800987B81 /* ViewControllerCell */,
@@ -110,6 +119,7 @@
 		128F1C23279EAEDA00987B81 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D71705527B9033000782EF3 /* TouristAreaViewController */,
 				128F1C34279FC0C100987B81 /* MainViewController */,
 			);
 			path = ViewController;
@@ -177,6 +187,24 @@
 			path = HeaderView;
 			sourceTree = "<group>";
 		};
+		4D71705527B9033000782EF3 /* TouristAreaViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */,
+				4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */,
+			);
+			path = TouristAreaViewController;
+			sourceTree = "<group>";
+		};
+		4D71705A27B9072200782EF3 /* TouristAreaCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D71705B27B9074300782EF3 /* TouristAreaCell.swift */,
+				4D71705C27B9074300782EF3 /* TouristAreaCell.xib */,
+			);
+			path = TouristAreaCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -235,12 +263,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */,
 				128F1C1B279EA26600987B81 /* LaunchScreen.storyboard in Resources */,
 				128F1C18279EA26600987B81 /* Assets.xcassets in Resources */,
 				128F1C39279FC12400987B81 /* ViewControllerCell.xib in Resources */,
 				128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */,
 				128F1C29279EB2B900987B81 /* TopBarView.xib in Resources */,
 				128F1C16279EA26400987B81 /* Main.storyboard in Resources */,
+				4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,10 +287,12 @@
 				122237DC27B660C900A772A5 /* LoadingView.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
+				4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */,
 				128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */,
 				128F1C38279FC12400987B81 /* ViewControllerCell.swift in Sources */,
 				128F1C40279FE07600987B81 /* NetworkAddress.swift in Sources */,
 				128F1C11279EA26400987B81 /* SceneDelegate.swift in Sources */,
+				4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
