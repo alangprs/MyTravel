@@ -41,6 +41,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         uiSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         getNetworkData()
     }
     
