@@ -23,7 +23,7 @@ class TopBarView: UIView {
     }
     
     ///用於載入xib
-    func loadXib() {
+    private func loadXib() {
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: String(describing: type(of: self)), bundle: bundle)
         guard let xibView = nib.instantiate(withOwner: self, options: nil).first as? UIView else {
