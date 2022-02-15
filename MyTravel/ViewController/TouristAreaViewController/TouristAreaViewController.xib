@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TouristAreaViewController" customModule="MyTravel" customModuleProvider="target">
             <connections>
                 <outlet property="tableView" destination="Pxw-c0-4JY" id="5oD-jT-weh"/>
+                <outlet property="topView" destination="zMz-Pa-xZl" id="fQj-iG-LpD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +21,29 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pxw-c0-4JY">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="83" width="414" height="779"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMz-Pa-xZl" customClass="TopBarView" customModule="MyTravel" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="83" id="WtF-fz-quy"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Pxw-c0-4JY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IpM-eE-Mpv"/>
+                <constraint firstItem="zMz-Pa-xZl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PqS-uB-tyc"/>
+                <constraint firstItem="zMz-Pa-xZl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xtp-ZQ-I59"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pxw-c0-4JY" secondAttribute="bottom" id="dtl-vp-tGe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pxw-c0-4JY" secondAttribute="trailing" id="ePb-KK-ZxG"/>
-                <constraint firstItem="Pxw-c0-4JY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="iTK-fZ-4jE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zMz-Pa-xZl" secondAttribute="trailing" id="rZg-U3-qrb"/>
+                <constraint firstItem="Pxw-c0-4JY" firstAttribute="top" secondItem="zMz-Pa-xZl" secondAttribute="bottom" id="zga-hk-bGr"/>
             </constraints>
-            <point key="canvasLocation" x="139" y="91"/>
+            <point key="canvasLocation" x="137.68115942028987" y="90.401785714285708"/>
         </view>
     </objects>
     <resources>

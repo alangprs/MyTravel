@@ -9,6 +9,7 @@ import UIKit
 
 class TouristAreaViewController: UIViewController {
 
+    @IBOutlet weak var topView: TopBarView!
     @IBOutlet weak var tableView: UITableView!
     
     var areaData = [Info]()
@@ -16,7 +17,20 @@ class TouristAreaViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        uiSetup()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    func uiSetup() {
         tableViewSetup()
+        topView.setTitle(title: "景點列表")
+        topView.leftButtonSetup(imageName: "backArrowBlack") {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
 
 }
