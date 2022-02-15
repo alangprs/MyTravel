@@ -1,5 +1,8 @@
 # MyTravel
 
+- 架構MVC
+- 製作方式Xib
+
 ### 20202/02/15 目前完成進度
 
 - 客製化LoadingView
