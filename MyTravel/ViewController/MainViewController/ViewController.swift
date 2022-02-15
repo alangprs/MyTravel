@@ -41,22 +41,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         uiSetup()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
         getNetworkData()
     }
-    
-    func uiSetup() {
+
+    private func uiSetup() {
         loadViewSetup()
         topBarView.setTitle(title: "首頁")
         collectionViewSetup()
     }
     
     ///loadView 設定
-    func loadViewSetup() {
+    private func loadViewSetup() {
         let loadView = LoadingView()
         view.addSubview(loadView)
         self.loadingView = loadView
@@ -64,7 +59,7 @@ class ViewController: UIViewController {
     
 
     ///打api 拿觀光局資料
-    func getNetworkData() {
+    private func getNetworkData() {
         loadingView.startAnimating()
         if let url = URL(string: kAttractions) {
             URLSession.shared.dataTask(with: url) { data, response, error in
@@ -96,7 +91,7 @@ class ViewController: UIViewController {
     }
     
     ///過濾選擇到的地區
-    func filterArea() {
+    private func filterArea() {
         //判斷是否取得資料了
         if tripData.count != 0 {
             taipaiArea = tripData.filter({$0.region == Region.臺北市})
@@ -174,8 +169,54 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return
         }
         
-        //將點選到的cell 相對應城市資料傳到下一頁
+        pushDataToTouristAreaViewController(areaItem: item)
+    }
+    
+    //將點選到的cell 相對應城市資料傳到下一頁
+    public func pushDataToTouristAreaViewController(areaItem: RegionSelect) {
         let controller = TouristAreaViewController()
+        switch areaItem {
+        case .taipai:
+            controller.areaData = taipaiArea
+        case .newTaipei:
+            controller.areaData = newTaipei
+        case .keelung:
+            controller.areaData = keelung
+        case .taoyuan:
+            controller.areaData = taoyuan
+        case .hsinchu:
+            controller.areaData = hsinchu
+        case .miaoli:
+            controller.areaData = miaoli
+        case .taichung:
+            controller.areaData = taichung
+        case .changhua:
+            controller.areaData = changhua
+        case .nantou:
+            controller.areaData = nantou
+        case .yunlin:
+            controller.areaData = yunlin
+        case .chiayi:
+            controller.areaData = chiayi
+        case .tainan:
+            controller.areaData = tainan
+        case .kaohsiung:
+            controller.areaData = kaohsiung
+        case .pingtung:
+            controller.areaData = pingtung
+        case .yilan:
+            controller.areaData = yilan
+        case .hualien:
+            controller.areaData = hualien
+        case .tautung:
+            controller.areaData = tautung
+        case .penghu:
+            controller.areaData = penghu
+        case .kinmen:
+            controller.areaData = kinmen
+        case .lienchiang:
+            controller.areaData = lienchiang
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 }

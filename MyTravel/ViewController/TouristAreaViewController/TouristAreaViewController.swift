@@ -11,18 +11,29 @@ class TouristAreaViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var areaData = [Info]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        tableViewSetup()
     }
 
 }
 
 extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableViewSetup() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let nib = UINib(nibName: "\(TouristAreaCell.self)", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "\(TouristAreaCell.self)")
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 1
+        return areaData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -31,6 +42,8 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             print("TouristAreaViewController Get TouristAreaCell Fail")
             return UITableViewCell()
         }
+        
+        cell.convertCell(data: areaData[indexPath.row])
         
         return cell
     }
