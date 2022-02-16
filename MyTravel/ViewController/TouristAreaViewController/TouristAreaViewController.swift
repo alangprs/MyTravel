@@ -28,8 +28,16 @@ class TouristAreaViewController: UIViewController {
     func uiSetup() {
         tableViewSetup()
         topView.setTitle(title: "景點列表")
+        
+        //返回按鈕
         topView.leftButtonSetup(imageName: "backArrowBlack") {
             self.navigationController?.popViewController(animated: true)
+        }
+        
+        //搜尋按鈕
+        topView.rightButtonSetup(imageName: "SearchBtnNormal") {
+            //預計放一個可以伸縮的view，放搜尋的bar
+            print("測試")
         }
     }
 
