@@ -18,35 +18,32 @@ class TouristAreaCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        keepSession?.cancel()
+        photoImageView.image = nil
     }
     
     func convertCell(data: Any) {
         
-        guard let info = data as? Info else {
+        guard let info = data as? Info ,
+        let imageString = info.picture1 else {
             print("TouristAreaCell Get info fial")
             return
         }
         
-        getNetworkImageData(imageString: info.picture1 ?? "")
+        getNetworkImageData(imageString: imageString)
         titleLabel.text = info.name
     }
     
     //打api取得圖片
     private func getNetworkImageData(imageString: String) {
         if let url = URL(string: imageString) {
-            let session = URLSession.shared.dataTask(with: url) { data, response, error in
+            URLSession.shared.dataTask(with: url) { data, response, error in
                 if let data = data {
                     DispatchQueue.main.async {
                         
                         self.photoImageView.image = UIImage(data: data)
                     }
                 }
-            }
-            // 執行抓照片任務
-            session.resume()
-            // 將抓照片任務交接給keepSession
-            keepSession = session
+            }.resume()
         }
         
     }
