@@ -18,6 +18,7 @@ class TouristAreaCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
+        photoImageView.image = nil
         keepSession?.cancel()
     }
     
@@ -28,27 +29,28 @@ class TouristAreaCell: UITableViewCell {
             return
         }
         
-        getNetworkImageData(imageString: info.picture1 ?? "")
+        getNetworkImageData(imageData: info)
         titleLabel.text = info.name
     }
     
     //打api取得圖片
-    private func getNetworkImageData(imageString: String) {
-        if let url = URL(string: imageString) {
-            let session = URLSession.shared.dataTask(with: url) { data, response, error in
-                if let data = data {
-                    DispatchQueue.main.async {
-                        
-                        self.photoImageView.image = UIImage(data: data)
-                    }
+    private func getNetworkImageData(imageData: Info) {
+        
+        guard let imageString = imageData.picture1,
+              let url = URL(string: imageString) else {
+                  print("TouristAreaCell getNetworkImageData Get Fail")
+                  self.photoImageView.image = UIImage(systemName: "photo.artframe")
+                  return
+              }
+         let session = URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data {
+                DispatchQueue.main.async {
+                    self.photoImageView.image = UIImage(data: data)
                 }
             }
-            // 執行抓照片任務
-            session.resume()
-            // 將抓照片任務交接給keepSession
-            keepSession = session
         }
-        
+        session.resume()
+        keepSession = session
     }
     
 }
