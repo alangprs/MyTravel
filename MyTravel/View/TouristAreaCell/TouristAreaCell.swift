@@ -42,7 +42,12 @@ class TouristAreaCell: UITableViewCell {
                   self.photoImageView.image = UIImage(systemName: "photo.artframe")
                   return
               }
-         let session = URLSession.shared.dataTask(with: url) { data, response, error in
+        //將http轉成https
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        urlComponents?.scheme = "https"
+        guard let urlComponent = urlComponents?.url else { return }
+        
+         let session = URLSession.shared.dataTask(with: urlComponent) { data, response, error in
             if let data = data {
                 DispatchQueue.main.async {
                     self.photoImageView.image = UIImage(data: data)
