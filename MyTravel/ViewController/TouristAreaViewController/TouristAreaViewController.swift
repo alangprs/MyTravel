@@ -13,6 +13,11 @@ class TouristAreaViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var areaData = [Info]()
+    var searchIsSelect: Bool = false {
+        didSet {
+            topViewRightButtonImageChang(isSelcet: searchIsSelect)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +42,21 @@ class TouristAreaViewController: UIViewController {
         //搜尋按鈕
         topView.rightButtonSetup(imageName: "SearchBtnNormal") {
             //預計放一個可以伸縮的view，放搜尋的bar
-            print("測試")
+            self.searchIsSelect.toggle()
         }
     }
 
+    ///topView 搜尋按鈕點選變色
+    func topViewRightButtonImageChang(isSelcet: Bool) {
+        topView.rightButton.isSelected = isSelcet
+        
+        switch isSelcet {
+        case true:
+            topView.rightButton.setImage(UIImage(named: "SearchBtnSelect"), for: .normal)
+        case false:
+            topView.rightButton.setImage(UIImage(named: "SearchBtnNormal"), for: .normal)
+        }
+    }
 }
 
 extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
