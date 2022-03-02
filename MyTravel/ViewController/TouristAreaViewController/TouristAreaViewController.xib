@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TouristAreaViewController" customModule="MyTravel" customModuleProvider="target">
             <connections>
                 <outlet property="number" destination="sJD-Yx-YZC" id="vfk-Jv-xz1"/>
+                <outlet property="searchBar" destination="vyX-Hm-ARv" id="LrP-iD-bVU"/>
                 <outlet property="searchView" destination="f4z-tY-pZg" id="3XL-C4-Mk7"/>
                 <outlet property="tableView" destination="Pxw-c0-4JY" id="5oD-jT-weh"/>
                 <outlet property="topView" destination="zMz-Pa-xZl" id="fQj-iG-LpD"/>
@@ -33,10 +34,21 @@
                         <constraint firstAttribute="height" constant="83" id="WtF-fz-quy"/>
                     </constraints>
                 </view>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4z-tY-pZg" userLabel="searchView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f4z-tY-pZg" userLabel="searchView">
                     <rect key="frame" x="0.0" y="83" width="414" height="1"/>
+                    <subviews>
+                        <searchBar contentMode="redraw" placeholder="輸入搜尋內容" translatesAutoresizingMaskIntoConstraints="NO" id="vyX-Hm-ARv">
+                            <rect key="frame" x="0.0" y="1" width="414" height="0.0"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     <constraints>
+                        <constraint firstItem="vyX-Hm-ARv" firstAttribute="top" secondItem="f4z-tY-pZg" secondAttribute="top" constant="1" id="3Yd-6w-Qp7"/>
+                        <constraint firstAttribute="bottom" secondItem="vyX-Hm-ARv" secondAttribute="bottom" id="9uD-fm-DF7"/>
+                        <constraint firstAttribute="trailing" secondItem="vyX-Hm-ARv" secondAttribute="trailing" id="V8u-UT-Iix"/>
                         <constraint firstAttribute="height" constant="1" id="sJD-Yx-YZC"/>
+                        <constraint firstItem="vyX-Hm-ARv" firstAttribute="leading" secondItem="f4z-tY-pZg" secondAttribute="leading" id="tiO-Fq-Qr7"/>
                     </constraints>
                 </view>
             </subviews>
@@ -58,6 +70,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -29,22 +29,29 @@ extension ImageNameString {
 import UIKit
 
 class TouristAreaViewController: UIViewController {
-
+    
     @IBOutlet weak var topView: TopBarView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var number: NSLayoutConstraint!
+    @IBOutlet weak var searchBar: UISearchBar!
     
+    ///顯示前一頁傳來各地區資料
     var areaData = [Info]()
+    ///過濾後資料
+    var searchData = [Info]()
+    ///搜尋按鈕開關變色
     var searchIsSelect: Bool = false {
         didSet {
             topViewRightButtonImageChang(isSelcet: searchIsSelect)
         }
     }
+    ///是否為搜尋狀態
+    var isSearch: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         uiSetup()
     }
     
@@ -55,6 +62,7 @@ class TouristAreaViewController: UIViewController {
     
     func uiSetup() {
         tableViewSetup()
+        searchBarUisetup()
         topView.setTitle(title: "景點列表")
         
         //返回按鈕
@@ -67,7 +75,7 @@ class TouristAreaViewController: UIViewController {
             self.searchIsSelect.toggle()
         }
     }
-
+    
     ///topView 搜尋按鈕點選變色
     func topViewRightButtonImageChang(isSelcet: Bool) {
         topView.rightButton.isSelected = isSelcet
@@ -77,7 +85,7 @@ class TouristAreaViewController: UIViewController {
         case true:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isSelectIcon.titlerString), for: .normal)
             //設定展開的view 大小
-            self.number.constant = CGFloat(100)
+            self.number.constant = CGFloat(80)
         case false:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isNotSelectIcon.titlerString), for: .normal)
             //將展開的view高度變０
@@ -98,7 +106,11 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return areaData.count
+        if isSearch {
+            return searchData.count
+        } else {
+            return areaData.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -108,10 +120,46 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         
-        cell.convertCell(data: areaData[indexPath.row])
-        
+        if isSearch {
+            cell.convertCell(data: searchData[indexPath.row])
+        } else {
+            cell.convertCell(data: areaData[indexPath.row])
+        }
         return cell
     }
     
     
+}
+
+//MARK: - SearchBar 設定
+extension TouristAreaViewController: UISearchBarDelegate {
+    
+    func searchBarUisetup() {
+        searchBar.delegate = self
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        isSearch = true
+ 
+        
+        //高階函數：判斷data資料裡面有無searchText輸入的內容
+        searchData = areaData.filter { (search) in
+            guard let searchData = search.name else {
+                print("filter fial")
+                return false
+            }
+            return searchData.hasPrefix(searchText)
+        }
+        
+        tableView.reloadData()
+        
+    }
+    
+    
+    //按下搜尋bar鍵盤的搜尋時，關閉鍵盤
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        self.searchBar.resignFirstResponder()
+    }
 }
