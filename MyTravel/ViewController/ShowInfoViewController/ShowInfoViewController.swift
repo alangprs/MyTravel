@@ -20,7 +20,7 @@ class ShowInfoViewController: UIViewController {
         
     }
 
-    func uiSetUp() {
+    private func uiSetUp() {
         topView.setTitle(title: "景點介紹")
         topView.leftButtonSetup(imageName: "backArrowBlack") {
             self.navigationController?.popViewController(animated: true)

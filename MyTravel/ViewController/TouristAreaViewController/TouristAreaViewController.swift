@@ -60,7 +60,7 @@ class TouristAreaViewController: UIViewController {
         
     }
     
-    func uiSetup() {
+    private func uiSetup() {
         tableViewSetup()
         searchBarUisetup()
         topView.setTitle(title: "景點列表")
@@ -77,7 +77,7 @@ class TouristAreaViewController: UIViewController {
     }
     
     ///topView 搜尋按鈕點選變色
-    func topViewRightButtonImageChang(isSelcet: Bool) {
+    private func topViewRightButtonImageChang(isSelcet: Bool) {
         topView.rightButton.isSelected = isSelcet
         
         
