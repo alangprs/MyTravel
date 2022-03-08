@@ -128,6 +128,12 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let controller = ShowInfoViewController()
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
     
 }
 
