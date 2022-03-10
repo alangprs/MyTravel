@@ -131,6 +131,14 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let controller = ShowInfoViewController()
+        
+        //判斷顯示過濾後資料還是未過濾資料
+        if isSearch {
+            controller.areaData = searchData[indexPath.row]
+        } else {
+            controller.areaData = areaData[indexPath.row]
+        }
+        
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
