@@ -209,10 +209,18 @@
 		4D2E5AF727D781EB00D897A3 /* ShowInfoViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5B0027DA271F00D897A3 /* ImageCell */,
+			);
+			path = ShowInfoViewCell;
+			sourceTree = "<group>";
+		};
+		4D2E5B0027DA271F00D897A3 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
 				4D2E5AFC27D782E400D897A3 /* ImageCell.swift */,
 				4D2E5AFD27D782E400D897A3 /* ImageCell.xib */,
 			);
-			path = ShowInfoViewCell;
+			path = ImageCell;
 			sourceTree = "<group>";
 		};
 		4D71705527B9033000782EF3 /* TouristAreaViewController */ = {
