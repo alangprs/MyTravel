@@ -12,6 +12,10 @@ class TitleCell: UITableViewCell {
     @IBOutlet weak var cellTitleLabel: UILabel!
     
     func convertCell(title: String) {
-        cellTitleLabel.text = title
+        
+        //修改第一個字的顏色
+        let butedString = NSMutableAttributedString(string: title)
+        butedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.brown, range: NSRange(location: 0, length: 1))
+        cellTitleLabel.attributedText = butedString
     }
 }
