@@ -60,7 +60,7 @@ class TouristAreaViewController: UIViewController {
         
     }
     
-    func uiSetup() {
+    private func uiSetup() {
         tableViewSetup()
         searchBarUisetup()
         topView.setTitle(title: "景點列表")
@@ -77,7 +77,7 @@ class TouristAreaViewController: UIViewController {
     }
     
     ///topView 搜尋按鈕點選變色
-    func topViewRightButtonImageChang(isSelcet: Bool) {
+    private func topViewRightButtonImageChang(isSelcet: Bool) {
         topView.rightButton.isSelected = isSelcet
         
         
@@ -126,6 +126,20 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             cell.convertCell(data: areaData[indexPath.row])
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let controller = ShowInfoViewController()
+        
+        //判斷顯示過濾後資料還是未過濾資料
+        if isSearch {
+            controller.areaData = searchData[indexPath.row]
+        } else {
+            controller.areaData = areaData[indexPath.row]
+        }
+        
+        self.navigationController?.pushViewController(controller, animated: true)
     }
     
     

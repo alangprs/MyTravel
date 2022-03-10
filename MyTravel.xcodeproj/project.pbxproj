@@ -23,6 +23,13 @@
 		128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C4227A0E80C00987B81 /* RegionEnum.swift */; };
 		128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 128F1C7927A2679D00987B81 /* HeaderView.swift */; };
 		128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 128F1C7A27A2679D00987B81 /* HeaderView.xib */; };
+		4D2E5AF027D7133300D897A3 /* ShowInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5AEE27D7133300D897A3 /* ShowInfoViewController.swift */; };
+		4D2E5AF127D7133300D897A3 /* ShowInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E5AEF27D7133300D897A3 /* ShowInfoViewController.xib */; };
+		4D2E5AFE27D782E400D897A3 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5AFC27D782E400D897A3 /* ImageCell.swift */; };
+		4D2E5AFF27D782E400D897A3 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E5AFD27D782E400D897A3 /* ImageCell.xib */; };
+		4D2E5B0427DA278800D897A3 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0227DA278800D897A3 /* TitleCell.swift */; };
+		4D2E5B0527DA278800D897A3 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0327DA278800D897A3 /* TitleCell.xib */; };
+		4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0727DA2CF900D897A3 /* UItableView.swift */; };
 		4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */; };
 		4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */; };
 		4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705B27B9074300782EF3 /* TouristAreaCell.swift */; };
@@ -48,6 +55,13 @@
 		128F1C4227A0E80C00987B81 /* RegionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionEnum.swift; sourceTree = "<group>"; };
 		128F1C7927A2679D00987B81 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		128F1C7A27A2679D00987B81 /* HeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		4D2E5AEE27D7133300D897A3 /* ShowInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoViewController.swift; sourceTree = "<group>"; };
+		4D2E5AEF27D7133300D897A3 /* ShowInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowInfoViewController.xib; sourceTree = "<group>"; };
+		4D2E5AFC27D782E400D897A3 /* ImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCell.swift; sourceTree = "<group>"; };
+		4D2E5AFD27D782E400D897A3 /* ImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		4D2E5B0227DA278800D897A3 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
+		4D2E5B0327DA278800D897A3 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		4D2E5B0727DA2CF900D897A3 /* UItableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItableView.swift; sourceTree = "<group>"; };
 		4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaViewController.swift; sourceTree = "<group>"; };
 		4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaViewController.xib; sourceTree = "<group>"; };
 		4D71705B27B9074300782EF3 /* TouristAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaCell.swift; sourceTree = "<group>"; };
@@ -92,6 +106,7 @@
 		128F1C0D279EA26400987B81 /* MyTravel */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5B0627DA2CD000D897A3 /* Extension */,
 				128F1C24279EAF1B00987B81 /* Model */,
 				128F1C23279EAEDA00987B81 /* ViewController */,
 				128F1C22279EAED400987B81 /* View */,
@@ -107,6 +122,7 @@
 		128F1C22279EAED400987B81 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5AF727D781EB00D897A3 /* ShowInfoViewCell */,
 				4D71705A27B9072200782EF3 /* TouristAreaCell */,
 				122237DA27B6609F00A772A5 /* LoadingView */,
 				128F1C7827A2678500987B81 /* HeaderView */,
@@ -119,6 +135,7 @@
 		128F1C23279EAEDA00987B81 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5AED27D7130E00D897A3 /* ShowInfoViewController */,
 				4D71705527B9033000782EF3 /* TouristAreaViewController */,
 				128F1C34279FC0C100987B81 /* MainViewController */,
 			);
@@ -185,6 +202,50 @@
 				128F1C7A27A2679D00987B81 /* HeaderView.xib */,
 			);
 			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		4D2E5AED27D7130E00D897A3 /* ShowInfoViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5AEE27D7133300D897A3 /* ShowInfoViewController.swift */,
+				4D2E5AEF27D7133300D897A3 /* ShowInfoViewController.xib */,
+			);
+			path = ShowInfoViewController;
+			sourceTree = "<group>";
+		};
+		4D2E5AF727D781EB00D897A3 /* ShowInfoViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5B0127DA277200D897A3 /* TitleCell */,
+				4D2E5B0027DA271F00D897A3 /* ImageCell */,
+			);
+			path = ShowInfoViewCell;
+			sourceTree = "<group>";
+		};
+		4D2E5B0027DA271F00D897A3 /* ImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5AFC27D782E400D897A3 /* ImageCell.swift */,
+				4D2E5AFD27D782E400D897A3 /* ImageCell.xib */,
+			);
+			path = ImageCell;
+			sourceTree = "<group>";
+		};
+		4D2E5B0127DA277200D897A3 /* TitleCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5B0227DA278800D897A3 /* TitleCell.swift */,
+				4D2E5B0327DA278800D897A3 /* TitleCell.xib */,
+			);
+			path = TitleCell;
+			sourceTree = "<group>";
+		};
+		4D2E5B0627DA2CD000D897A3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5B0727DA2CF900D897A3 /* UItableView.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		4D71705527B9033000782EF3 /* TouristAreaViewController */ = {
@@ -265,9 +326,12 @@
 			files = (
 				4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */,
 				128F1C1B279EA26600987B81 /* LaunchScreen.storyboard in Resources */,
+				4D2E5AF127D7133300D897A3 /* ShowInfoViewController.xib in Resources */,
+				4D2E5AFF27D782E400D897A3 /* ImageCell.xib in Resources */,
 				128F1C18279EA26600987B81 /* Assets.xcassets in Resources */,
 				128F1C39279FC12400987B81 /* ViewControllerCell.xib in Resources */,
 				128F1C7C27A2679D00987B81 /* HeaderView.xib in Resources */,
+				4D2E5B0527DA278800D897A3 /* TitleCell.xib in Resources */,
 				128F1C29279EB2B900987B81 /* TopBarView.xib in Resources */,
 				128F1C16279EA26400987B81 /* Main.storyboard in Resources */,
 				4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */,
@@ -286,12 +350,16 @@
 				128F1C13279EA26400987B81 /* ViewController.swift in Sources */,
 				122237DC27B660C900A772A5 /* LoadingView.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
+				4D2E5AFE27D782E400D897A3 /* ImageCell.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
 				4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */,
 				128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */,
 				128F1C38279FC12400987B81 /* ViewControllerCell.swift in Sources */,
 				128F1C40279FE07600987B81 /* NetworkAddress.swift in Sources */,
 				128F1C11279EA26400987B81 /* SceneDelegate.swift in Sources */,
+				4D2E5B0427DA278800D897A3 /* TitleCell.swift in Sources */,
+				4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */,
+				4D2E5AF027D7133300D897A3 /* ShowInfoViewController.swift in Sources */,
 				4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
