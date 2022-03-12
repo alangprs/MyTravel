@@ -6,7 +6,7 @@
 // 展示點選到的景點內容
 
 enum CellSelect: Int, CaseIterable {
-    case image = 0, title = 1
+    case image = 0, title = 1, content = 2
 }
 
 import UIKit
@@ -44,6 +44,7 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.creatCell(nibName: "\(ImageCell.self)")
         tableView.creatCell(nibName: "\(TitleCell.self)")
+        tableView.creatCell(nibName: "\(ContentCell.self)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -85,6 +86,21 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
             }
             
             return titleCell
+        case .content:
+            // 顯示內容cell
+            guard let contentCell = tableView.dequeueReusableCell(withIdentifier: "\(ContentCell.self)") as? ContentCell else {
+                print("\(ShowInfoViewController.self) get content fail")
+                return UITableViewCell()
+            }
+            
+            if let toldescribe = areaData?.toldescribe {
+                contentCell.convertCell(toldescribeText: toldescribe)
+            } else {
+                print("\(ShowInfoViewController.self) get toldescribe fail")
+            }
+            
+            return contentCell
+            
         }
         
     }
