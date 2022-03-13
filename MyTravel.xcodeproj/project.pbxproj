@@ -66,6 +66,7 @@
 		4D2E5B0727DA2CF900D897A3 /* UItableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItableView.swift; sourceTree = "<group>"; };
 		4D2E5B0A27DCB10500D897A3 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
 		4D2E5B0B27DCB10500D897A3 /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
+		4D2E5B1727DDD12200D897A3 /* MyTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyTravel.entitlements; sourceTree = "<group>"; };
 		4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaViewController.swift; sourceTree = "<group>"; };
 		4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaViewController.xib; sourceTree = "<group>"; };
 		4D71705B27B9074300782EF3 /* TouristAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaCell.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		128F1C0D279EA26400987B81 /* MyTravel */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5B1727DDD12200D897A3 /* MyTravel.entitlements */,
 				4D2E5B0627DA2CD000D897A3 /* Extension */,
 				128F1C24279EAF1B00987B81 /* Model */,
 				128F1C23279EAEDA00987B81 /* ViewController */,
@@ -523,6 +525,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyTravel/MyTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KWKVL4YQWY;
@@ -553,6 +556,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyTravel/MyTravel.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = KWKVL4YQWY;
