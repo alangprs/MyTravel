@@ -93,6 +93,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
+            //當點擊此cell時，更新cell內容
+            contentCell.didClickUnfoldButton = {
+                tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
+            }
+            
             if let toldescribe = areaData?.toldescribe {
                 contentCell.convertCell(toldescribeText: toldescribe)
             } else {

@@ -31,7 +31,7 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain">
-                            <imageReference key="image" image="chevron.compact.down" catalog="system" symbolScale="small"/>
+                            <imageReference key="image" image="chevron.compact.down" catalog="system" symbolScale="large"/>
                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </buttonConfiguration>
                         <connections>
