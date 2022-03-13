@@ -30,6 +30,8 @@
 		4D2E5B0427DA278800D897A3 /* TitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0227DA278800D897A3 /* TitleCell.swift */; };
 		4D2E5B0527DA278800D897A3 /* TitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0327DA278800D897A3 /* TitleCell.xib */; };
 		4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0727DA2CF900D897A3 /* UItableView.swift */; };
+		4D2E5B0C27DCB10500D897A3 /* ContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0A27DCB10500D897A3 /* ContentCell.swift */; };
+		4D2E5B0D27DCB10500D897A3 /* ContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2E5B0B27DCB10500D897A3 /* ContentCell.xib */; };
 		4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */; };
 		4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */; };
 		4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705B27B9074300782EF3 /* TouristAreaCell.swift */; };
@@ -62,6 +64,8 @@
 		4D2E5B0227DA278800D897A3 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
 		4D2E5B0327DA278800D897A3 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
 		4D2E5B0727DA2CF900D897A3 /* UItableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UItableView.swift; sourceTree = "<group>"; };
+		4D2E5B0A27DCB10500D897A3 /* ContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCell.swift; sourceTree = "<group>"; };
+		4D2E5B0B27DCB10500D897A3 /* ContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCell.xib; sourceTree = "<group>"; };
 		4D71705627B9039B00782EF3 /* TouristAreaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaViewController.swift; sourceTree = "<group>"; };
 		4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaViewController.xib; sourceTree = "<group>"; };
 		4D71705B27B9074300782EF3 /* TouristAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaCell.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 		4D2E5AF727D781EB00D897A3 /* ShowInfoViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4D2E5B0927DCB0ED00D897A3 /* ContentCell */,
 				4D2E5B0127DA277200D897A3 /* TitleCell */,
 				4D2E5B0027DA271F00D897A3 /* ImageCell */,
 			);
@@ -246,6 +251,15 @@
 				4D2E5B0727DA2CF900D897A3 /* UItableView.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		4D2E5B0927DCB0ED00D897A3 /* ContentCell */ = {
+			isa = PBXGroup;
+			children = (
+				4D2E5B0A27DCB10500D897A3 /* ContentCell.swift */,
+				4D2E5B0B27DCB10500D897A3 /* ContentCell.xib */,
+			);
+			path = ContentCell;
 			sourceTree = "<group>";
 		};
 		4D71705527B9033000782EF3 /* TouristAreaViewController */ = {
@@ -335,6 +349,7 @@
 				128F1C29279EB2B900987B81 /* TopBarView.xib in Resources */,
 				128F1C16279EA26400987B81 /* Main.storyboard in Resources */,
 				4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */,
+				4D2E5B0D27DCB10500D897A3 /* ContentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +374,7 @@
 				128F1C11279EA26400987B81 /* SceneDelegate.swift in Sources */,
 				4D2E5B0427DA278800D897A3 /* TitleCell.swift in Sources */,
 				4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */,
+				4D2E5B0C27DCB10500D897A3 /* ContentCell.swift in Sources */,
 				4D2E5AF027D7133300D897A3 /* ShowInfoViewController.swift in Sources */,
 				4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */,
 			);
