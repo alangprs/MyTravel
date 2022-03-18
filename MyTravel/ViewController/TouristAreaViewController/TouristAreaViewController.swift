@@ -46,6 +46,9 @@ class TouristAreaViewController: UIViewController {
             topViewRightButtonImageChang(isSelcet: searchIsSelect)
         }
     }
+    
+    ///過濾後的地區
+    var towns = Set<String>()
     ///是否為搜尋狀態
     var isSearch: Bool = false
     
@@ -58,6 +61,7 @@ class TouristAreaViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getTownData()
     }
     
     private func uiSetup() {
@@ -91,6 +95,18 @@ class TouristAreaViewController: UIViewController {
             //將展開的view高度變０
             self.number.constant = CGFloat(0)
         }
+    }
+    
+    ///將取得的地區過濾重複的存進towns
+    private func getTownData() {
+        var townArray = [String]()
+        for i in areaData {
+            //解包、判斷town 有無值
+            if let town = i.town, town.isEmpty == false {
+                townArray.append(town)
+            }
+        }
+        towns = Set(townArray)
     }
 }
 
