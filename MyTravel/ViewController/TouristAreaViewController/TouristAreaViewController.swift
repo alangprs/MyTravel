@@ -106,9 +106,9 @@ class TouristAreaViewController: UIViewController {
     ///將取得的地區過濾重複的存進towns
     private func getTownData() {
         var townArray = [String]()
-        for i in areaData {
+        for areaData in areaData {
             //解包、判斷town 有無值
-            if let town = i.town, town.isEmpty == false {
+            if let town = areaData.town, town.isEmpty == false {
                 townArray.append(town)
             }
         }
@@ -202,8 +202,8 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
         
         //將剔除重複的地區存入array
         var townArray = [String]()
-        for i in towns {
-            townArray.append(i)
+        for towns in towns {
+            townArray.append(towns)
         }
         
         cell.convertCell(data: townArray[indexPath.item])
