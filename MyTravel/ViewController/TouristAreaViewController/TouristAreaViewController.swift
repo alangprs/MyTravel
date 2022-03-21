@@ -64,6 +64,8 @@ class TouristAreaViewController: UIViewController {
         getTownData()
     }
     
+    //MARK: - UI
+    
     private func uiSetup() {
         tableViewSetup()
         searchBarUisetup()
@@ -97,6 +99,8 @@ class TouristAreaViewController: UIViewController {
         }
     }
     
+    //MARK: - Method
+    
     ///將取得的地區過濾重複的存進towns
     private func getTownData() {
         var townArray = [String]()
@@ -109,6 +113,8 @@ class TouristAreaViewController: UIViewController {
         towns = Set(townArray)
     }
 }
+
+//MARK: - UITableViewDelegate
 
 extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -157,8 +163,6 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
-    
 }
 
 //MARK: - SearchBar 設定
@@ -171,7 +175,6 @@ extension TouristAreaViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         isSearch = true
- 
         
         //高階函數：判斷data資料裡面有無searchText輸入的內容
         searchData = areaData.filter { (search) in
