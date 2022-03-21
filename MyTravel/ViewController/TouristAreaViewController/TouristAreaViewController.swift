@@ -35,6 +35,7 @@ class TouristAreaViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var number: NSLayoutConstraint!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     ///顯示前一頁傳來各地區資料
     var areaData = [Info]()
@@ -68,6 +69,7 @@ class TouristAreaViewController: UIViewController {
     
     private func uiSetup() {
         tableViewSetup()
+        collectionViewSetUp()
         searchBarUisetup()
         topView.setTitle(title: "景點列表")
         
@@ -91,7 +93,7 @@ class TouristAreaViewController: UIViewController {
         case true:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isSelectIcon.titlerString), for: .normal)
             //設定展開的view 大小
-            self.number.constant = CGFloat(80)
+            self.number.constant = CGFloat(105)
         case false:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isNotSelectIcon.titlerString), for: .normal)
             //將展開的view高度變０
@@ -163,6 +165,53 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
+}
+
+//MARK: - CollectionViewDelegate
+
+extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionViewSetUp() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        //開啟分頁
+        collectionView.isPagingEnabled = true
+        //設定滾動方向
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        
+        //加入xib
+        let nib = UINib(nibName: "\(TagCell.self)", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "\(TagCell.self)")
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("測試 看數量", towns.count)
+        return towns.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TagCell.self)", for: indexPath) as? TagCell else {
+            print("\(TouristAreaViewController.self) get collectionView cell fail")
+            return UICollectionViewCell()
+        }
+        
+        //將剔除重複的地區存入array
+        var townArray = [String]()
+        for i in towns {
+            townArray.append(i)
+        }
+        
+        cell.convertCell(data: townArray[indexPath.item])
+        
+        return cell
+    }
+    
+    
 }
 
 //MARK: - SearchBar 設定
