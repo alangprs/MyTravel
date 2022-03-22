@@ -35,6 +35,7 @@ class TouristAreaViewController: UIViewController {
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var number: NSLayoutConstraint!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     ///顯示前一頁傳來各地區資料
     var areaData = [Info]()
@@ -46,8 +47,15 @@ class TouristAreaViewController: UIViewController {
             topViewRightButtonImageChang(isSelcet: searchIsSelect)
         }
     }
+    
+    ///過濾後的地區
+    var towns = Set<String>()
+    //存入剔除重複後的地區
+    var townArray = [String]()
     ///是否為搜尋狀態
     var isSearch: Bool = false
+    ///item大小
+    var layout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +66,14 @@ class TouristAreaViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getTownData()
     }
+    
+    //MARK: - UI
     
     private func uiSetup() {
         tableViewSetup()
+        collectionViewSetUp()
         searchBarUisetup()
         topView.setTitle(title: "景點列表")
         
@@ -85,14 +97,35 @@ class TouristAreaViewController: UIViewController {
         case true:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isSelectIcon.titlerString), for: .normal)
             //設定展開的view 大小
-            self.number.constant = CGFloat(80)
+            self.number.constant = CGFloat(105)
         case false:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isNotSelectIcon.titlerString), for: .normal)
             //將展開的view高度變０
             self.number.constant = CGFloat(0)
         }
     }
+    
+    //MARK: - Method
+    
+    ///將取得的地區過濾重複的 存進towns
+    private func getTownData() {
+        var noFilterTowns = [String]()
+        for areaData in areaData {
+            //解包、判斷town 有無值
+            if let town = areaData.town, town.isEmpty == false {
+                noFilterTowns.append(town)
+            }
+        }
+        //將array內重複的剔除
+        towns = Set(noFilterTowns)
+        
+        for towns in towns {
+            townArray.append(towns)
+        }
+    }
 }
+
+//MARK: - UITableViewDelegate
 
 extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -141,7 +174,62 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
+}
+
+//MARK: - CollectionViewDelegate
+
+extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    func collectionViewSetUp() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        //開啟分頁
+        collectionView.isPagingEnabled = true
+        //設定滾動方向
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        
+        //加入xib
+        let nib = UINib(nibName: "\(TagCell.self)", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "\(TagCell.self)")
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return towns.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TagCell.self)", for: indexPath) as? TagCell else {
+            print("\(TouristAreaViewController.self) get collectionView cell fail")
+            return UICollectionViewCell()
+        }
+        
+        cell.convertCell(data: townArray[indexPath.item])
+        
+        return cell
+    }
+    
+    //設定tag item大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        //設定文字大小
+        let textFont = UIFont.systemFont(ofSize: 17)
+        //取得每個文字
+        let tetxString = townArray[indexPath.item]
+
+        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
+        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
+
+        return textLabelSize
+    }
+    
+    func textSize(text : String , font : UIFont , maxSize : CGSize) -> CGSize{
+        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
+    }
     
 }
 
@@ -155,7 +243,6 @@ extension TouristAreaViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         isSearch = true
- 
         
         //高階函數：判斷data資料裡面有無searchText輸入的內容
         searchData = areaData.filter { (search) in
