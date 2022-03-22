@@ -50,8 +50,12 @@ class TouristAreaViewController: UIViewController {
     
     ///過濾後的地區
     var towns = Set<String>()
+    //存入剔除重複後的地區
+    var townArray = [String]()
     ///是否為搜尋狀態
     var isSearch: Bool = false
+    ///item大小
+    var layout = UICollectionViewFlowLayout()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,16 +107,21 @@ class TouristAreaViewController: UIViewController {
     
     //MARK: - Method
     
-    ///將取得的地區過濾重複的存進towns
+    ///將取得的地區過濾重複的 存進towns
     private func getTownData() {
-        var townArray = [String]()
+        var noFilterTowns = [String]()
         for areaData in areaData {
             //解包、判斷town 有無值
             if let town = areaData.town, town.isEmpty == false {
-                townArray.append(town)
+                noFilterTowns.append(town)
             }
         }
-        towns = Set(townArray)
+        //將array內重複的剔除
+        towns = Set(noFilterTowns)
+        
+        for towns in towns {
+            townArray.append(towns)
+        }
     }
 }
 
@@ -189,7 +198,6 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("測試 看數量", towns.count)
         return towns.count
     }
     
@@ -200,17 +208,28 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        //將剔除重複的地區存入array
-        var townArray = [String]()
-        for towns in towns {
-            townArray.append(towns)
-        }
-        
         cell.convertCell(data: townArray[indexPath.item])
         
         return cell
     }
     
+    //設定tag item大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        //設定文字大小
+        let textFont = UIFont.systemFont(ofSize: 17)
+        //取得每個文字
+        let tetxString = townArray[indexPath.item]
+
+        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
+        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
+
+        return textLabelSize
+    }
+    
+    func textSize(text : String , font : UIFont , maxSize : CGSize) -> CGSize{
+        return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
+    }
     
 }
 
