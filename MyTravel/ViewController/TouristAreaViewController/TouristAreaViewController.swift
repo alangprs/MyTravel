@@ -215,7 +215,8 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     
     //設定tag item大小
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
+        var cellSize = CGSize()
         //設定文字大小
         let textFont = UIFont.systemFont(ofSize: 17)
         //取得每個文字
@@ -223,8 +224,11 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
 
         let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
         let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
-
-        return textLabelSize
+        
+        //cell 高度、寬度
+        cellSize.width = textLabelSize.width + 40
+        cellSize.height = 30
+        return cellSize
     }
     
     func textSize(text : String , font : UIFont , maxSize : CGSize) -> CGSize{

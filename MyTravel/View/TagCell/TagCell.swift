@@ -11,6 +11,12 @@ class TagCell: UICollectionViewCell {
 
     @IBOutlet weak var tagTextLabel: UILabel!
     
+    override func awakeFromNib() {
+        super .awakeFromNib()
+        
+        self.layer.cornerRadius = 15
+    }
+    
     func convertCell(data: String) {
         tagTextLabel.text = data
     }
