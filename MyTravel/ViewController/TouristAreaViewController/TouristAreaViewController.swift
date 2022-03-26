@@ -97,7 +97,7 @@ class TouristAreaViewController: UIViewController {
         case true:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isSelectIcon.titlerString), for: .normal)
             //設定展開的view 大小
-            self.number.constant = CGFloat(105)
+            self.number.constant = CGFloat(80)
         case false:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isNotSelectIcon.titlerString), for: .normal)
             //將展開的view高度變０
