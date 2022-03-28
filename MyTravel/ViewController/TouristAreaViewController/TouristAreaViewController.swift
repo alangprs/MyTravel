@@ -54,6 +54,8 @@ class TouristAreaViewController: UIViewController {
     var townArray = [String]()
     ///是否為搜尋狀態
     var isSearch: Bool = false
+    ///是否為tag狀態
+    var isSelectTag: Bool = true
     ///item大小
     var layout = UICollectionViewFlowLayout()
     
@@ -97,7 +99,7 @@ class TouristAreaViewController: UIViewController {
         case true:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isSelectIcon.titlerString), for: .normal)
             //設定展開的view 大小
-            self.number.constant = CGFloat(105)
+            self.number.constant = CGFloat(80)
         case false:
             topView.rightButton.setImage(UIImage(named: ImageNameString.isNotSelectIcon.titlerString), for: .normal)
             //將展開的view高度變０
@@ -215,7 +217,8 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     
     //設定tag item大小
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
+        var cellSize = CGSize()
         //設定文字大小
         let textFont = UIFont.systemFont(ofSize: 17)
         //取得每個文字
@@ -223,12 +226,40 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
 
         let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
         let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
-
-        return textLabelSize
+        
+        //cell 高度、寬度
+        cellSize.width = textLabelSize.width + 40
+        cellSize.height = 30
+        return cellSize
     }
     
     func textSize(text : String , font : UIFont , maxSize : CGSize) -> CGSize{
         return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
+    }
+    
+    //選到後動作
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var tagdata = [Info]()
+        isSelectTag.toggle()
+        
+        if isSelectTag {
+            print("測試 被點true狀態 ", isSelectTag)
+            //選到的地區
+            let selectTown = townArray[indexPath.item]
+            tagdata = areaData.filter { (data) in
+                guard data.town == selectTown else {
+                    return false
+                }
+                
+                return true
+            }
+        } else {
+            print("測試 被點fals狀態", isSelectTag)
+        }
+        
+        
+        tableView.reloadData()
     }
     
 }
