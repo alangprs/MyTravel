@@ -54,6 +54,8 @@ class TouristAreaViewController: UIViewController {
     var townArray = [String]()
     ///是否為搜尋狀態
     var isSearch: Bool = false
+    ///是否為tag狀態
+    var isSelectTag: Bool = true
     ///item大小
     var layout = UICollectionViewFlowLayout()
     
@@ -233,6 +235,31 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     
     func textSize(text : String , font : UIFont , maxSize : CGSize) -> CGSize{
         return text.boundingRect(with: maxSize, options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font : font], context: nil).size
+    }
+    
+    //選到後動作
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var tagdata = [Info]()
+        isSelectTag.toggle()
+        
+        if isSelectTag {
+            print("測試 被點true狀態 ", isSelectTag)
+            //選到的地區
+            let selectTown = townArray[indexPath.item]
+            tagdata = areaData.filter { (data) in
+                guard data.town == selectTown else {
+                    return false
+                }
+                
+                return true
+            }
+        } else {
+            print("測試 被點fals狀態", isSelectTag)
+        }
+        
+        
+        tableView.reloadData()
     }
     
 }
