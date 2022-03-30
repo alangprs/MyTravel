@@ -55,7 +55,7 @@ class TouristAreaViewController: UIViewController {
     ///是否為搜尋狀態
     var isSearch: Bool = false
     ///是否為tag狀態
-    var isSelectTag: Bool = true
+    var isSelectTag: Bool = false
     ///item大小
     var layout = UICollectionViewFlowLayout()
     
@@ -141,7 +141,7 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isSearch {
+        if isSearch || isSelectTag {
             return searchData.count
         } else {
             return areaData.count
@@ -155,7 +155,7 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         
-        if isSearch {
+        if isSearch || isSelectTag {
             cell.convertCell(data: searchData[indexPath.row])
         } else {
             cell.convertCell(data: areaData[indexPath.row])
@@ -168,7 +168,7 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         let controller = ShowInfoViewController()
         
         //判斷顯示過濾後資料還是未過濾資料
-        if isSearch {
+        if isSearch || isSelectTag {
             controller.areaData = searchData[indexPath.row]
         } else {
             controller.areaData = areaData[indexPath.row]
@@ -240,24 +240,19 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     //選到後動作
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var tagdata = [Info]()
         isSelectTag.toggle()
         
         if isSelectTag {
-            print("測試 被點true狀態 ", isSelectTag)
             //選到的地區
             let selectTown = townArray[indexPath.item]
-            tagdata = areaData.filter { (data) in
+            searchData = areaData.filter { (data) in
                 guard data.town == selectTown else {
                     return false
                 }
                 
                 return true
             }
-        } else {
-            print("測試 被點fals狀態", isSelectTag)
         }
-        
         
         tableView.reloadData()
     }
