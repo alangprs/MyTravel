@@ -15,7 +15,7 @@ class ViewControllerCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.backgroundColor = UIColor.brown
+//        self.backgroundColor = UIColor.brown
         //賦予圓角
         self.layer.cornerRadius = 15
         //設定陰影位置
