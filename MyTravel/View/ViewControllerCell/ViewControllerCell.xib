@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,19 +18,19 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jtx-iw-FDR">
-                        <rect key="frame" x="85" y="0.0" width="257" height="116"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <rect key="frame" x="65" y="0.0" width="277" height="116"/>
+                        <color key="backgroundColor" name="D26900"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-Yu-XkV">
-                        <rect key="frame" x="90" y="47.5" width="242" height="21"/>
+                        <rect key="frame" x="113.5" y="47.5" width="218.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SearchBtnSelect" translatesAutoresizingMaskIntoConstraints="NO" id="YSu-6N-mwe">
-                        <rect key="frame" x="5" y="23" width="70" height="70"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="台北" translatesAutoresizingMaskIntoConstraints="NO" id="YSu-6N-mwe">
+                        <rect key="frame" x="5" y="23" width="93.5" height="70"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="YSu-6N-mwe" secondAttribute="height" multiplier="1:1" id="FxI-hV-NnO"/>
+                            <constraint firstAttribute="width" secondItem="YSu-6N-mwe" secondAttribute="height" multiplier="4:3" id="FxI-hV-NnO"/>
                             <constraint firstAttribute="height" constant="70" id="Tg1-CN-H0k"/>
                         </constraints>
                     </imageView>
@@ -43,23 +42,25 @@
                 <constraint firstItem="fxG-Yu-XkV" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="trailing" constant="15" id="0sq-Ip-4Dl"/>
                 <constraint firstItem="YSu-6N-mwe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ahz-VT-vP6"/>
                 <constraint firstAttribute="bottom" secondItem="Jtx-iw-FDR" secondAttribute="bottom" id="RFP-bz-eUl"/>
-                <constraint firstItem="Jtx-iw-FDR" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="trailing" constant="10" id="WY9-E2-OZJ"/>
                 <constraint firstItem="fxG-Yu-XkV" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="YXj-HI-W5w"/>
                 <constraint firstItem="Jtx-iw-FDR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z6k-1S-I3A"/>
                 <constraint firstItem="YSu-6N-mwe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="huU-TV-YxA"/>
                 <constraint firstAttribute="trailing" secondItem="fxG-Yu-XkV" secondAttribute="trailing" constant="10" id="jpc-l6-LaT"/>
+                <constraint firstItem="Jtx-iw-FDR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="65" id="x0j-0v-IL9"/>
             </constraints>
             <size key="customSize" width="342" height="116"/>
             <connections>
+                <outlet property="backgroundColorView" destination="Jtx-iw-FDR" id="6gI-SA-meu"/>
+                <outlet property="photoImageView" destination="YSu-6N-mwe" id="hhk-6l-yRq"/>
                 <outlet property="titleLabel" destination="fxG-Yu-XkV" id="8En-bK-PjC"/>
             </connections>
             <point key="canvasLocation" x="121.73913043478262" y="162.72321428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="SearchBtnSelect" width="34" height="34"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="台北" width="360" height="240"/>
+        <namedColor name="D26900">
+            <color red="0.82352941176470584" green="0.41176470588235292" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

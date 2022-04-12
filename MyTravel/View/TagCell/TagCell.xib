@@ -20,7 +20,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i6j-jq-ScX">
                         <rect key="frame" x="0.0" y="14" width="245" height="23"/>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="16"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -41,7 +40,7 @@
     </objects>
     <resources>
         <namedColor name="D26900">
-            <color red="0.82352941176470584" green="0.41176470588235292" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.92156862745098034" blue="0.65490196078431373" alpha="0.70049403810501099" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

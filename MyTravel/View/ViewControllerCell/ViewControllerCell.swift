@@ -11,21 +11,24 @@ class ViewControllerCell: UICollectionViewCell {
 
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var backgroundColorView: UIView!
+    @IBOutlet weak var photoImageView: UIImageView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        self.backgroundColor = UIColor.brown
         //賦予圓角
-        self.layer.cornerRadius = 15
+        backgroundColorView.layer.cornerRadius = 15
+        photoImageView.layer.cornerRadius = 15
         //設定陰影位置
-        self.layer.shadowOffset = CGSize(width: 5, height: 5)
-        //陰影透明度
-        self.layer.shadowOpacity = 0.7
-        //隱影範圍
-        self.layer.shadowRadius = 5
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.clipsToBounds = false
+//        self.layer.shadowOffset = CGSize(width: 5, height: 5)
+//        //陰影透明度
+//        self.layer.shadowOpacity = 0.7
+//        //隱影範圍
+//        self.layer.shadowRadius = 5
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.clipsToBounds = false
         
     }
     
