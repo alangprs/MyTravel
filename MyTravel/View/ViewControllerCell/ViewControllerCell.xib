@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -27,6 +28,10 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2w-7y-fYH" userLabel="containerView">
+                        <rect key="frame" x="5" y="23" width="93.5" height="70"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="台北" translatesAutoresizingMaskIntoConstraints="NO" id="YSu-6N-mwe">
                         <rect key="frame" x="5" y="23" width="93.5" height="70"/>
                         <constraints>
@@ -38,10 +43,14 @@
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
+                <constraint firstItem="x2w-7y-fYH" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="leading" id="07B-RQ-Npu"/>
                 <constraint firstAttribute="trailing" secondItem="Jtx-iw-FDR" secondAttribute="trailing" id="08B-L5-k04"/>
                 <constraint firstItem="fxG-Yu-XkV" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="trailing" constant="15" id="0sq-Ip-4Dl"/>
+                <constraint firstItem="x2w-7y-fYH" firstAttribute="top" secondItem="YSu-6N-mwe" secondAttribute="top" id="3oy-bZ-8uJ"/>
                 <constraint firstItem="YSu-6N-mwe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ahz-VT-vP6"/>
+                <constraint firstItem="x2w-7y-fYH" firstAttribute="bottom" secondItem="YSu-6N-mwe" secondAttribute="bottom" id="B0a-rs-FuS"/>
                 <constraint firstAttribute="bottom" secondItem="Jtx-iw-FDR" secondAttribute="bottom" id="RFP-bz-eUl"/>
+                <constraint firstItem="x2w-7y-fYH" firstAttribute="trailing" secondItem="YSu-6N-mwe" secondAttribute="trailing" id="Tig-cT-LhV"/>
                 <constraint firstItem="fxG-Yu-XkV" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="YXj-HI-W5w"/>
                 <constraint firstItem="Jtx-iw-FDR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z6k-1S-I3A"/>
                 <constraint firstItem="YSu-6N-mwe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="huU-TV-YxA"/>
@@ -51,6 +60,7 @@
             <size key="customSize" width="342" height="116"/>
             <connections>
                 <outlet property="backgroundColorView" destination="Jtx-iw-FDR" id="6gI-SA-meu"/>
+                <outlet property="containerView" destination="x2w-7y-fYH" id="Gcu-Nt-cJx"/>
                 <outlet property="photoImageView" destination="YSu-6N-mwe" id="hhk-6l-yRq"/>
                 <outlet property="titleLabel" destination="fxG-Yu-XkV" id="8En-bK-PjC"/>
             </connections>
@@ -60,7 +70,10 @@
     <resources>
         <image name="台北" width="360" height="240"/>
         <namedColor name="D26900">
-            <color red="0.82352941176470584" green="0.41176470588235292" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.92156862745098034" blue="0.65490196078431373" alpha="0.70049403810501099" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
