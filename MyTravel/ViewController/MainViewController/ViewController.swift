@@ -151,14 +151,14 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         
-        cell.convertCell(data: functions)
+        cell.convertCell(data: functions, imageName: functions.titleString)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         //設定item尺寸
-        layout.itemSize = CGSize(width: view.frame.width / 4, height: 80)
+        layout.itemSize = CGSize(width: view.frame.width - 30, height: 180)
         return layout.itemSize
     }
     

@@ -3,6 +3,11 @@
 - 架構MVC
 - 製作方式Xib
 
+
+### 2022/4/13 目前進度
+- 修改首頁ＵＩ畫面呈現方式
+![image](https://github.com/alangprs/MyTravel/blob/developer/ShowDemo/IMG_0053.PNG)
+=======
 ### 2022/3/31 更新進度
 - 修復 黑暗模式錯誤
 - 新增 地區tag功能
