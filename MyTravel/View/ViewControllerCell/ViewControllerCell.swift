@@ -36,7 +36,7 @@ class ViewControllerCell: UICollectionViewCell {
     }
     
     ///給予cell資料
-    func convertCell(data: Any) {
+    func convertCell(data: Any, imageName: String) {
         
         //記得把data 轉型內容改成 str資料
         guard let data = data as? RegionSelect else {
@@ -45,6 +45,7 @@ class ViewControllerCell: UICollectionViewCell {
         }
         
         titleLabel.text = data.titleString
+        photoImageView.image = UIImage(named: imageName)
         
     }
 

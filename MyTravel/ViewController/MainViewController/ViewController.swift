@@ -151,7 +151,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return UICollectionViewCell()
         }
         
-        cell.convertCell(data: functions)
+        cell.convertCell(data: functions, imageName: functions.titleString)
         
         return cell
     }
