@@ -39,7 +39,7 @@ class TouristAreaCell: UITableViewCell {
         guard let imageString = imageData.picture1,
               let url = URL(string: imageString) else {
                   print("TouristAreaCell getNetworkImageData Get Fail")
-                  self.photoImageView.image = UIImage(systemName: "photo.artframe")
+                  self.photoImageView.image = UIImage(named: "bear")
                   return
               }
         //將http轉成https
