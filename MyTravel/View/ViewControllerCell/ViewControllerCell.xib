@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,50 +19,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="342" height="116"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jtx-iw-FDR">
-                        <rect key="frame" x="65" y="0.0" width="277" height="116"/>
-                        <color key="backgroundColor" name="D26900"/>
-                    </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-Yu-XkV">
-                        <rect key="frame" x="113.5" y="47.5" width="218.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x2w-7y-fYH" userLabel="containerView">
-                        <rect key="frame" x="5" y="23" width="93.5" height="70"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="台北" translatesAutoresizingMaskIntoConstraints="NO" id="YSu-6N-mwe">
+                        <rect key="frame" x="70" y="0.0" width="262" height="116"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEQ-HX-2vX">
+                        <rect key="frame" x="10" y="25" width="100" height="66"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="台北" translatesAutoresizingMaskIntoConstraints="NO" id="YSu-6N-mwe">
-                        <rect key="frame" x="5" y="23" width="93.5" height="70"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xb7-BB-Z5k">
+                        <rect key="frame" x="10" y="25" width="100" height="66"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxG-Yu-XkV">
+                                <rect key="frame" x="26" y="21" width="48" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="D26900"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="YSu-6N-mwe" secondAttribute="height" multiplier="4:3" id="FxI-hV-NnO"/>
-                            <constraint firstAttribute="height" constant="70" id="Tg1-CN-H0k"/>
+                            <constraint firstAttribute="width" constant="100" id="9o4-x1-bSP"/>
+                            <constraint firstItem="fxG-Yu-XkV" firstAttribute="centerY" secondItem="xb7-BB-Z5k" secondAttribute="centerY" id="Juc-lr-HIU"/>
+                            <constraint firstItem="fxG-Yu-XkV" firstAttribute="centerX" secondItem="xb7-BB-Z5k" secondAttribute="centerX" id="PQF-z7-4RX"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="x2w-7y-fYH" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="leading" id="07B-RQ-Npu"/>
-                <constraint firstAttribute="trailing" secondItem="Jtx-iw-FDR" secondAttribute="trailing" id="08B-L5-k04"/>
-                <constraint firstItem="fxG-Yu-XkV" firstAttribute="leading" secondItem="YSu-6N-mwe" secondAttribute="trailing" constant="15" id="0sq-Ip-4Dl"/>
-                <constraint firstItem="x2w-7y-fYH" firstAttribute="top" secondItem="YSu-6N-mwe" secondAttribute="top" id="3oy-bZ-8uJ"/>
-                <constraint firstItem="YSu-6N-mwe" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Ahz-VT-vP6"/>
-                <constraint firstItem="x2w-7y-fYH" firstAttribute="bottom" secondItem="YSu-6N-mwe" secondAttribute="bottom" id="B0a-rs-FuS"/>
-                <constraint firstAttribute="bottom" secondItem="Jtx-iw-FDR" secondAttribute="bottom" id="RFP-bz-eUl"/>
-                <constraint firstItem="x2w-7y-fYH" firstAttribute="trailing" secondItem="YSu-6N-mwe" secondAttribute="trailing" id="Tig-cT-LhV"/>
-                <constraint firstItem="fxG-Yu-XkV" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="YXj-HI-W5w"/>
-                <constraint firstItem="Jtx-iw-FDR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z6k-1S-I3A"/>
-                <constraint firstItem="YSu-6N-mwe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="huU-TV-YxA"/>
-                <constraint firstAttribute="trailing" secondItem="fxG-Yu-XkV" secondAttribute="trailing" constant="10" id="jpc-l6-LaT"/>
-                <constraint firstItem="Jtx-iw-FDR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="65" id="x0j-0v-IL9"/>
+                <constraint firstItem="YSu-6N-mwe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2XQ-q3-l4p"/>
+                <constraint firstAttribute="trailing" secondItem="YSu-6N-mwe" secondAttribute="trailing" constant="10" id="B63-re-DJS"/>
+                <constraint firstItem="rEQ-HX-2vX" firstAttribute="top" secondItem="xb7-BB-Z5k" secondAttribute="top" id="DdL-HH-Tcc"/>
+                <constraint firstItem="YSu-6N-mwe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="70" id="Tx1-8m-Pg0"/>
+                <constraint firstAttribute="bottom" secondItem="xb7-BB-Z5k" secondAttribute="bottom" constant="25" id="UEz-1r-ggZ"/>
+                <constraint firstItem="xb7-BB-Z5k" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="25" id="UNJ-AW-HD1"/>
+                <constraint firstItem="rEQ-HX-2vX" firstAttribute="bottom" secondItem="xb7-BB-Z5k" secondAttribute="bottom" id="W8g-8Q-6i2"/>
+                <constraint firstAttribute="bottom" secondItem="YSu-6N-mwe" secondAttribute="bottom" id="WaV-PV-YYs"/>
+                <constraint firstItem="rEQ-HX-2vX" firstAttribute="leading" secondItem="xb7-BB-Z5k" secondAttribute="leading" id="g5y-3C-bi3"/>
+                <constraint firstItem="rEQ-HX-2vX" firstAttribute="trailing" secondItem="xb7-BB-Z5k" secondAttribute="trailing" id="kbD-FG-XQV"/>
+                <constraint firstItem="xb7-BB-Z5k" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="kdV-L5-tiC"/>
             </constraints>
             <size key="customSize" width="342" height="116"/>
             <connections>
-                <outlet property="backgroundColorView" destination="Jtx-iw-FDR" id="6gI-SA-meu"/>
-                <outlet property="containerView" destination="x2w-7y-fYH" id="Gcu-Nt-cJx"/>
-                <outlet property="photoImageView" destination="YSu-6N-mwe" id="hhk-6l-yRq"/>
+                <outlet property="containerView" destination="xb7-BB-Z5k" id="Puy-G9-TP3"/>
+                <outlet property="photoImageView" destination="YSu-6N-mwe" id="Unx-LV-6J0"/>
+                <outlet property="shadowView" destination="rEQ-HX-2vX" id="Btm-s4-t1Z"/>
                 <outlet property="titleLabel" destination="fxG-Yu-XkV" id="8En-bK-PjC"/>
             </connections>
             <point key="canvasLocation" x="121.73913043478262" y="162.72321428571428"/>
@@ -70,7 +71,7 @@
     <resources>
         <image name="台北" width="360" height="240"/>
         <namedColor name="D26900">
-            <color red="1" green="0.92156862745098034" blue="0.65490196078431373" alpha="0.70049403810501099" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.92156862745098034" blue="0.65490196078431373" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
