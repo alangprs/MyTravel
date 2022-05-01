@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pxw-c0-4JY">
-                    <rect key="frame" x="0.0" y="133" width="414" height="729"/>
+                    <rect key="frame" x="0.0" y="133" width="414" height="763"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMz-Pa-xZl" customClass="TopBarView" customModule="MyTravel" customModuleProvider="target">
@@ -78,7 +78,7 @@
                 <constraint firstItem="zMz-Pa-xZl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xtp-ZQ-I59"/>
                 <constraint firstItem="hiQ-U9-x9c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="10" id="dFo-nI-Ssw"/>
                 <constraint firstItem="f4z-tY-pZg" firstAttribute="top" secondItem="zMz-Pa-xZl" secondAttribute="bottom" id="dj6-ib-GRW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Pxw-c0-4JY" secondAttribute="bottom" id="dtl-vp-tGe"/>
+                <constraint firstAttribute="bottom" secondItem="Pxw-c0-4JY" secondAttribute="bottom" id="dtl-vp-tGe"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Pxw-c0-4JY" secondAttribute="trailing" id="ePb-KK-ZxG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zMz-Pa-xZl" secondAttribute="trailing" id="rZg-U3-qrb"/>
                 <constraint firstItem="f4z-tY-pZg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uQN-8r-x01"/>
