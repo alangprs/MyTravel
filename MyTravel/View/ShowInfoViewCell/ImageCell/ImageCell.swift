@@ -21,7 +21,7 @@ class ImageCell: UITableViewCell {
         
         guard let url = URL(string: imageUrl) else {
             print("TouristAreaCell getNetworkImageData Get Fail")
-            self.showInfoImageView.image = UIImage(systemName: "photo.artframe")
+            self.showInfoImageView.image = UIImage(named: "bear")
             return
         }
         //將http轉成https

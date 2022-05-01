@@ -55,7 +55,6 @@ struct Info: Codable {
     let picdescribe3: String?
     let map: String?
     let px, py: Float?
-    let orgclass: Orgclass?
     let class1: String?
     let class2, class3, level: String?
     let website: String?
@@ -80,7 +79,6 @@ struct Info: Codable {
         case map = "Map"
         case px = "Px"
         case py = "Py"
-        case orgclass = "Orgclass"
         case class1 = "Class1"
         case class2 = "Class2"
         case class3 = "Class3"
@@ -90,35 +88,6 @@ struct Info: Codable {
     }
 }
 
-
-enum Orgclass: String, Codable {
-    case empty = ""
-    case 休閒景點 = "休閒景點"
-    case 休閒景點文化景點 = "休閒景點、文化景點"
-    case 休閒景點特色展館 = "休閒景點、特色展館"
-    case 公園遊憩 = "公園遊憩"
-    case 單車漫遊 = "單車漫遊"
-    case 寺廟參訪 = "寺廟參訪"
-    case 展覽博物 = "展覽博物"
-    case 工藝創作 = "工藝創作"
-    case 廟宇古蹟 = "廟宇古蹟"
-    case 文化景點 = "文化景點"
-    case 文化類 = "文化類"
-    case 桃米生態村 = "桃米生態村"
-    case 海岸風情 = "海岸風情"
-    case 濱海風光 = "濱海風光"
-    case 特色展館 = "特色展館"
-    case 特色展館文化景點 = "特色展館、文化景點"
-    case 特色展館觀光工廠 = "特色展館、觀光工廠"
-    case 生態景觀 = "生態景觀"
-    case 生態景觀休閒景點自行車道 = "生態景觀、休閒景點、自行車道"
-    case 綠野森呼吸 = "綠野森呼吸"
-    case 縱情花田 = "縱情花田"
-    case 老街巡禮 = "老街巡禮"
-    case 親子同遊 = "親子同遊"
-    case 觀光工廠 = "觀光工廠"
-    case 鐵道懷舊 = "鐵道懷舊"
-}
 
 enum Region: String, Codable {
     case 南投縣 = "南投縣"

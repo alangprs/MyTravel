@@ -80,11 +80,15 @@ class ViewController: UIViewController {
                         
                     } catch {
                         print("ViewController getNetworkData get data catch", error)
-                        self.loadingView.stopAnimating()
+                        DispatchQueue.main.async {
+                            self.loadingView.stopAnimating()
+                        }
                     }
                 } else {
                     print("ViewController getNetworkData get data error")
-                    self.loadingView.stopAnimating()
+                    DispatchQueue.main.async {
+                        self.loadingView.stopAnimating()
+                    }
                 }
             }.resume()
         }
