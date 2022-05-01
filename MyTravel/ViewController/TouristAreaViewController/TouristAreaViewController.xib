@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -54,7 +54,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="hiQ-U9-x9c">
-                    <rect key="frame" x="10" y="83" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="83" width="424" height="50"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="mUe-Bx-0tp"/>
@@ -72,7 +72,7 @@
             <constraints>
                 <constraint firstItem="hiQ-U9-x9c" firstAttribute="top" secondItem="f4z-tY-pZg" secondAttribute="bottom" id="0FI-Sq-WD1"/>
                 <constraint firstItem="f4z-tY-pZg" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="0lF-cV-kXd"/>
-                <constraint firstItem="hiQ-U9-x9c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="BRV-4w-0bZ"/>
+                <constraint firstItem="hiQ-U9-x9c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="BRV-4w-0bZ"/>
                 <constraint firstItem="Pxw-c0-4JY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="IpM-eE-Mpv"/>
                 <constraint firstItem="zMz-Pa-xZl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PqS-uB-tyc"/>
                 <constraint firstItem="zMz-Pa-xZl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xtp-ZQ-I59"/>
