@@ -240,9 +240,15 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     //選到後動作
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            print("gat cellForItem fail")
+            return
+        }
+        
         isSelectTag.toggle()
         
         if isSelectTag {
+            cell.contentView.backgroundColor = .red
             //選到的地區
             let selectTown = townArray[indexPath.item]
             searchData = areaData.filter { (data) in
@@ -252,6 +258,8 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
                 
                 return true
             }
+        } else {
+            cell.contentView.backgroundColor = .clear
         }
         
         tableView.reloadData()
