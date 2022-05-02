@@ -6,7 +6,7 @@
 // 展示點選到的景點內容
 
 enum CellSelect: Int, CaseIterable {
-    case image = 0, title = 1, content = 2
+    case image = 0, title = 1, content = 2, phoneNumber = 3
 }
 
 import UIKit
@@ -45,6 +45,7 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.creatCell(nibName: "\(ImageCell.self)")
         tableView.creatCell(nibName: "\(TitleCell.self)")
         tableView.creatCell(nibName: "\(ContentCell.self)")
+        tableView.creatCell(nibName: "\(PhoneCell.self)")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -106,6 +107,19 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
             
             return contentCell
             
+        case .phoneNumber:
+            guard let phonenumberCell = tableView.dequeueReusableCell(withIdentifier: "\(PhoneCell.self)") as? PhoneCell else {
+                print("get PhonenmberCell fail")
+                return UITableViewCell()
+            }
+            
+            if let phonenumber = areaData?.tel {
+                phonenumberCell.convertCell(phoneNumber: phonenumber)
+            } else {
+                phonenumberCell.convertCell(phoneNumber: "此景點未提供電話")
+            }
+            
+            return phonenumberCell
         }
         
     }

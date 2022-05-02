@@ -38,6 +38,8 @@
 		4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */; };
 		4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D71705B27B9074300782EF3 /* TouristAreaCell.swift */; };
 		4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705C27B9074300782EF3 /* TouristAreaCell.xib */; };
+		4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22CA22820283900BAE791 /* PhoneCell.swift */; };
+		4DA22CA52820283900BAE791 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CA32820283900BAE791 /* PhoneCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		4D71705727B9039B00782EF3 /* TouristAreaViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaViewController.xib; sourceTree = "<group>"; };
 		4D71705B27B9074300782EF3 /* TouristAreaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaCell.swift; sourceTree = "<group>"; };
 		4D71705C27B9074300782EF3 /* TouristAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaCell.xib; sourceTree = "<group>"; };
+		4DA22CA22820283900BAE791 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
+		4DA22CA32820283900BAE791 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,7 @@
 		4D2E5AF727D781EB00D897A3 /* ShowInfoViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4DA22CA12820282100BAE791 /* PhoneCell */,
 				4D2E5B0927DCB0ED00D897A3 /* ContentCell */,
 				4D2E5B0127DA277200D897A3 /* TitleCell */,
 				4D2E5B0027DA271F00D897A3 /* ImageCell */,
@@ -296,6 +301,15 @@
 			path = TouristAreaCell;
 			sourceTree = "<group>";
 		};
+		4DA22CA12820282100BAE791 /* PhoneCell */ = {
+			isa = PBXGroup;
+			children = (
+				4DA22CA22820283900BAE791 /* PhoneCell.swift */,
+				4DA22CA32820283900BAE791 /* PhoneCell.xib */,
+			);
+			path = PhoneCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -354,6 +368,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DA22CA52820283900BAE791 /* PhoneCell.xib in Resources */,
 				4D71705927B9039B00782EF3 /* TouristAreaViewController.xib in Resources */,
 				128F1C1B279EA26600987B81 /* LaunchScreen.storyboard in Resources */,
 				4D2E5AF127D7133300D897A3 /* ShowInfoViewController.xib in Resources */,
@@ -394,6 +409,7 @@
 				4D2E5B1F27E8B12600D897A3 /* TagCell.swift in Sources */,
 				4D2E5B0C27DCB10500D897A3 /* ContentCell.swift in Sources */,
 				4D2E5AF027D7133300D897A3 /* ShowInfoViewController.swift in Sources */,
+				4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */,
 				4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
