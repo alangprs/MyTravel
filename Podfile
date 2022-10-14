@@ -8,6 +8,7 @@ target 'MyTravel' do
 source 'https://github.com/CocoaPods/Specs.git'
 
  pod 'SnapKit', '~> 5.6.0'
+ pod 'SDWebImage', '~> 5.0'
 
   # Pods for MyTravel
 
