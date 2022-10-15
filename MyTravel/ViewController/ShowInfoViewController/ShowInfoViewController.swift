@@ -16,7 +16,7 @@ class ShowInfoViewController: UIViewController {
     @IBOutlet weak var topView: TopBarView!
     @IBOutlet weak var tableView: UITableView!
     
-    var areaData: Info?
+//    var areaData: Info?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,11 +66,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            if let imageUrl = areaData?.picture1 {
-                imageCell.convertCell(data: imageUrl)
-            } else {
-                print("\(ShowInfoViewController.self) get imageUrl fail")
-            }
+//            if let imageUrl = areaData?.picture1 {
+//                imageCell.convertCell(data: imageUrl)
+//            } else {
+//                print("\(ShowInfoViewController.self) get imageUrl fail")
+//            }
             
             return imageCell
             
@@ -80,11 +80,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            if let title = areaData?.name {
-                titleCell.convertCell(title: title)
-            } else {
-                print("\(ShowInfoViewController.self) get title fail")
-            }
+//            if let title = areaData?.name {
+//                titleCell.convertCell(title: title)
+//            } else {
+//                print("\(ShowInfoViewController.self) get title fail")
+//            }
             
             return titleCell
         case .content:
@@ -98,12 +98,12 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
             contentCell.didClickUnfoldButton = {
                 tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
             }
-            
-            if let toldescribe = areaData?.toldescribe {
-                contentCell.convertCell(toldescribeText: toldescribe)
-            } else {
-                print("\(ShowInfoViewController.self) get toldescribe fail")
-            }
+//
+//            if let toldescribe = areaData?.toldescribe {
+//                contentCell.convertCell(toldescribeText: toldescribe)
+//            } else {
+//                print("\(ShowInfoViewController.self) get toldescribe fail")
+//            }
             
             return contentCell
             
@@ -113,11 +113,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-            if let phonenumber = areaData?.tel {
-                phonenumberCell.convertCell(phoneNumber: phonenumber)
-            } else {
-                phonenumberCell.convertCell(phoneNumber: "此景點未提供電話")
-            }
+//            if let phonenumber = areaData?.tel {
+//                phonenumberCell.convertCell(phoneNumber: phonenumber)
+//            } else {
+//                phonenumberCell.convertCell(phoneNumber: "此景點未提供電話")
+//            }
             
             return phonenumberCell
         }

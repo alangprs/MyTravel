@@ -38,9 +38,9 @@ class TouristAreaViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     ///顯示前一頁傳來各地區資料
-    var areaData = [Info]()
-    ///過濾後資料
-    var searchData = [Info]()
+//    var areaData = [Info]()
+//    ///過濾後資料
+//    var searchData = [Info]()
     ///搜尋按鈕開關變色
     var searchIsSelect: Bool = false {
         didSet {
@@ -48,10 +48,10 @@ class TouristAreaViewController: UIViewController {
         }
     }
     
-    ///過濾後的地區
-    var towns = Set<String>()
-    //存入剔除重複後的地區
-    var townArray = [String]()
+//    ///過濾後的地區
+//    var towns = Set<String>()
+//    //存入剔除重複後的地區
+//    var townArray = [String]()
     ///是否為搜尋狀態
     var isSearch: Bool = false
     ///是否為tag狀態
@@ -59,21 +59,26 @@ class TouristAreaViewController: UIViewController {
     ///item大小
     var layout = UICollectionViewFlowLayout()
     
+    private lazy var viewModel: TouristAreaVM = {
+        var vm = TouristAreaVM()
+        return vm
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        uiSetup()
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        getTownData()
+//        getTownData()
     }
     
     //MARK: - UI
     
-    private func uiSetup() {
+    private func setupUI() {
         tableViewSetup()
         collectionViewSetUp()
         searchBarUisetup()
@@ -107,24 +112,7 @@ class TouristAreaViewController: UIViewController {
         }
     }
     
-    //MARK: - Method
     
-    ///將取得的地區過濾重複的 存進towns
-    private func getTownData() {
-        var noFilterTowns = [String]()
-        for areaData in areaData {
-            //解包、判斷town 有無值
-            if let town = areaData.town, town.isEmpty == false {
-                noFilterTowns.append(town)
-            }
-        }
-        //將array內重複的剔除
-        towns = Set(noFilterTowns)
-        
-        for towns in towns {
-            townArray.append(towns)
-        }
-    }
 }
 
 //MARK: - UITableViewDelegate
@@ -141,11 +129,12 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if isSearch || isSelectTag {
-            return searchData.count
-        } else {
-            return areaData.count
-        }
+//        if isSearch || isSelectTag {
+//            return searchData.count
+//        } else {
+//            return areaData.count
+//        }
+        return viewModel.getSelectData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -155,11 +144,14 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         
-        if isSearch || isSelectTag {
-            cell.convertCell(data: searchData[indexPath.row])
-        } else {
-            cell.convertCell(data: areaData[indexPath.row])
-        }
+//        if isSearch || isSelectTag {
+//            cell.convertCell(data: searchData[indexPath.row])
+//        } else {
+//            cell.convertCell(data: areaData[indexPath.row])
+//        }
+        
+        cell.convertCell(data: viewModel.getSelectData()[indexPath.row])
+        
         return cell
     }
     
@@ -168,11 +160,11 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         let controller = ShowInfoViewController()
         
         //判斷顯示過濾後資料還是未過濾資料
-        if isSearch || isSelectTag {
-            controller.areaData = searchData[indexPath.row]
-        } else {
-            controller.areaData = areaData[indexPath.row]
-        }
+//        if isSearch || isSelectTag {
+//            controller.areaData = searchData[indexPath.row]
+//        } else {
+//            controller.areaData = areaData[indexPath.row]
+//        }
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
@@ -200,7 +192,8 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return towns.count
+//        return towns.count
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -210,9 +203,10 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-        cell.convertCell(data: townArray[indexPath.item])
+//        cell.convertCell(data: townArray[indexPath.item])
         
-        return cell
+        
+        return UICollectionViewCell()
     }
     
     //設定tag item大小
@@ -222,13 +216,14 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
         //設定文字大小
         let textFont = UIFont.systemFont(ofSize: 17)
         //取得每個文字
-        let tetxString = townArray[indexPath.item]
-
-        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
-        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
+//        let tetxString = townArray[indexPath.item]
+//
+//        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
+//        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
         
         //cell 高度、寬度
-        cellSize.width = textLabelSize.width + 40
+//        cellSize.width = textLabelSize.width + 40
+        cellSize.width = 40
         cellSize.height = 30
         return cellSize
     }
@@ -238,32 +233,32 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     //選到後動作
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) else {
-            print("gat cellForItem fail")
-            return
-        }
-        
-        isSelectTag.toggle()
-        
-        if isSelectTag {
-            cell.contentView.backgroundColor = .red
-            //選到的地區
-            let selectTown = townArray[indexPath.item]
-            searchData = areaData.filter { (data) in
-                guard data.town == selectTown else {
-                    return false
-                }
-                
-                return true
-            }
-        } else {
-            cell.contentView.backgroundColor = .clear
-        }
-        
-        tableView.reloadData()
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//
+//        guard let cell = collectionView.cellForItem(at: indexPath) else {
+//            print("gat cellForItem fail")
+//            return
+//        }
+//
+//        isSelectTag.toggle()
+//
+//        if isSelectTag {
+//            cell.contentView.backgroundColor = .red
+//            //選到的地區
+////            let selectTown = townArray[indexPath.item]
+//            searchData = areaData.filter { (data) in
+//                guard data.town == selectTown else {
+//                    return false
+//                }
+//
+//                return true
+//            }
+//        } else {
+//            cell.contentView.backgroundColor = .clear
+//        }
+//
+//        tableView.reloadData()
+//    }
     
 }
 
@@ -276,18 +271,18 @@ extension TouristAreaViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        isSearch = true
-        
-        //高階函數：判斷data資料裡面有無searchText輸入的內容
-        searchData = areaData.filter { (search) in
-            guard let searchData = search.name else {
-                print("filter fial")
-                return false
-            }
-            return searchData.hasPrefix(searchText)
-        }
-        
-        tableView.reloadData()
+//        isSearch = true
+//        
+//        //高階函數：判斷data資料裡面有無searchText輸入的內容
+//        searchData = areaData.filter { (search) in
+//            guard let searchData = search.name else {
+//                print("filter fial")
+//                return false
+//            }
+//            return searchData.hasPrefix(searchText)
+//        }
+//        
+//        tableView.reloadData()
         
     }
     

@@ -40,6 +40,9 @@
 		4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705C27B9074300782EF3 /* TouristAreaCell.xib */; };
 		4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22CA22820283900BAE791 /* PhoneCell.swift */; };
 		4DA22CA52820283900BAE791 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CA32820283900BAE791 /* PhoneCell.xib */; };
+		BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */; };
+		BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */; };
+		BED2192628FA860A00FF1AE3 /* TouristAreaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */; };
 		E7198C216A8A82601410CA85 /* Pods_MyTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7652CE58D9D887D3ACB8DF1 /* Pods_MyTravel.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,9 @@
 		4D71705C27B9074300782EF3 /* TouristAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaCell.xib; sourceTree = "<group>"; };
 		4DA22CA22820283900BAE791 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		4DA22CA32820283900BAE791 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
+		BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataManager.swift; sourceTree = "<group>"; };
+		BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVM.swift; sourceTree = "<group>"; };
+		BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaVM.swift; sourceTree = "<group>"; };
 		F7652CE58D9D887D3ACB8DF1 /* Pods_MyTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,6 +135,7 @@
 				4D2E5B1727DDD12200D897A3 /* MyTravel.entitlements */,
 				4D2E5B0627DA2CD000D897A3 /* Extension */,
 				128F1C24279EAF1B00987B81 /* Model */,
+				BED2192228FA6FCD00FF1AE3 /* ViewModel */,
 				128F1C23279EAEDA00987B81 /* ViewController */,
 				128F1C22279EAED400987B81 /* View */,
 				128F1C0E279EA26400987B81 /* AppDelegate.swift */,
@@ -167,6 +174,7 @@
 		128F1C24279EAF1B00987B81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */,
 				128F1C4127A0E7E100987B81 /* RegionEnum */,
 				128F1C3A279FD62B00987B81 /* NetworkStruct */,
 			);
@@ -334,6 +342,23 @@
 			path = PhoneCell;
 			sourceTree = "<group>";
 		};
+		BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */,
+			);
+			path = TripDataTripDataManager;
+			sourceTree = "<group>";
+		};
+		BED2192228FA6FCD00FF1AE3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */,
+				BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -466,6 +491,7 @@
 				122237DC27B660C900A772A5 /* LoadingView.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				4D2E5AFE27D782E400D897A3 /* ImageCell.swift in Sources */,
+				BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
 				4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */,
 				128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */,
@@ -476,6 +502,8 @@
 				4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */,
 				4D2E5B1F27E8B12600D897A3 /* TagCell.swift in Sources */,
 				4D2E5B0C27DCB10500D897A3 /* ContentCell.swift in Sources */,
+				BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */,
+				BED2192628FA860A00FF1AE3 /* TouristAreaVM.swift in Sources */,
 				4D2E5AF027D7133300D897A3 /* ShowInfoViewController.swift in Sources */,
 				4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */,
 				4D71705D27B9074300782EF3 /* TouristAreaCell.swift in Sources */,

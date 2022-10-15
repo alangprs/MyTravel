@@ -41,17 +41,21 @@ class LoadingView: UIView {
     
     ///loadingView 停止方法
     public func stopAnimating()  {
-        if isLock {
-            lockView.removeFromSuperview()
-            activityIndicatorView.stopAnimating()
-            activityIndicatorView.removeFromSuperview()
-            lockView = nil
-            activityIndicatorView = nil
+        
+        DispatchQueue.main.async {
+            if self.isLock {
+                self.lockView.removeFromSuperview()
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.removeFromSuperview()
+                self.lockView = nil
+                self.activityIndicatorView = nil
 
-            isLock = false
-        } else {
-            print("No Start Animating")
+                self.isLock = false
+            } else {
+                print("No Start Animating")
+            }
         }
+        
     }
 
 }
