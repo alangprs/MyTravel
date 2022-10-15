@@ -37,32 +37,34 @@ class TouristAreaViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    ///顯示前一頁傳來各地區資料
-//    var areaData = [Info]()
-//    ///過濾後資料
-//    var searchData = [Info]()
-    ///搜尋按鈕開關變色
+    /// 搜尋按鈕開關變色
     var searchIsSelect: Bool = false {
         didSet {
             topViewRightButtonImageChang(isSelcet: searchIsSelect)
         }
     }
     
-//    ///過濾後的地區
-//    var towns = Set<String>()
-//    //存入剔除重複後的地區
-//    var townArray = [String]()
     ///是否為搜尋狀態
-    var isSearch: Bool = false
-    ///是否為tag狀態
-    var isSelectTag: Bool = false
-    ///item大小
-    var layout = UICollectionViewFlowLayout()
+    private lazy var isSearch: Bool = {
+       return false
+    }()
+    
+    /// 是否為tag狀態
+    private lazy var isSelectTag: Bool = {
+       return false
+    }()
+    
+    /// item大小
+    private lazy var layout: UICollectionViewFlowLayout = {
+        return UICollectionViewFlowLayout()
+    }()
     
     private lazy var viewModel: TouristAreaVM = {
         var vm = TouristAreaVM()
         return vm
     }()
+    
+    // MARK: - life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,15 +75,15 @@ class TouristAreaViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        getTownData()
+        viewModel.getTownData()
     }
     
-    //MARK: - UI
+    // MARK: - set
     
     private func setupUI() {
-        tableViewSetup()
-        collectionViewSetUp()
-        searchBarUisetup()
+        setupTableView()
+        setupCollectionView()
+        setSearchBarDelegate()
         topView.setTitle(title: "景點列表")
         
         //返回按鈕
@@ -95,10 +97,9 @@ class TouristAreaViewController: UIViewController {
         }
     }
     
-    ///topView 搜尋按鈕點選變色
+    /// topView 搜尋按鈕點選變色
     private func topViewRightButtonImageChang(isSelcet: Bool) {
         topView.rightButton.isSelected = isSelcet
-        
         
         switch isSelcet {
         case true:
@@ -112,14 +113,7 @@ class TouristAreaViewController: UIViewController {
         }
     }
     
-    
-}
-
-//MARK: - UITableViewDelegate
-
-extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableViewSetup() {
+    private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -127,14 +121,40 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         tableView.register(nib, forCellReuseIdentifier: "\(TouristAreaCell.self)")
     }
     
+    private func setupCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        // 開啟分頁
+        collectionView.isPagingEnabled = true
+        // 設定滾動方向
+        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        
+        // 加入xib
+        let nib = UINib(nibName: "\(TagCell.self)", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: "\(TagCell.self)")
+        
+    }
+    
+    private func setSearchBarDelegate() {
+        searchBar.delegate = self
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+
+extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if isSearch || isSelectTag {
-//            return searchData.count
-//        } else {
-//            return areaData.count
-//        }
-        return viewModel.getSelectData().count
+        if isSearch || isSelectTag {
+            return viewModel.searchDataCount
+        } else {
+            return viewModel.areaDataCount
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -144,13 +164,11 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
             return UITableViewCell()
         }
         
-//        if isSearch || isSelectTag {
-//            cell.convertCell(data: searchData[indexPath.row])
-//        } else {
-//            cell.convertCell(data: areaData[indexPath.row])
-//        }
-        
-        cell.convertCell(data: viewModel.getSelectData()[indexPath.row])
+        if isSearch || isSelectTag {
+            cell.convertCell(data: viewModel.getSearchData(indexpath: indexPath))
+        } else {
+            cell.convertCell(data: viewModel.getSelectData(indexpath: indexPath))
+        }
         
         return cell
     }
@@ -159,11 +177,11 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         
         let controller = ShowInfoViewController()
         
-        //判斷顯示過濾後資料還是未過濾資料
+        // 判斷顯示過濾後資料還是未過濾資料
 //        if isSearch || isSelectTag {
-//            controller.areaData = searchData[indexPath.row]
+//            controller.areaData = viewModel.getSearchData()[indexPath.row]
 //        } else {
-//            controller.areaData = areaData[indexPath.row]
+//            controller.areaData = viewModel.getSelectData()[indexPath.row]
 //        }
         
         self.navigationController?.pushViewController(controller, animated: true)
@@ -174,26 +192,9 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
 
 extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    func collectionViewSetUp() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        //開啟分頁
-        collectionView.isPagingEnabled = true
-        //設定滾動方向
-        if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-        
-        //加入xib
-        let nib = UINib(nibName: "\(TagCell.self)", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "\(TagCell.self)")
-        
-    }
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return towns.count
-        return 0
+        
+        return viewModel.townArrayCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -203,27 +204,25 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
             return UICollectionViewCell()
         }
         
-//        cell.convertCell(data: townArray[indexPath.item])
+        cell.convertCell(data: viewModel.getTownArray(indexpath: indexPath))
         
-        
-        return UICollectionViewCell()
+        return cell
     }
     
     //設定tag item大小
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         var cellSize = CGSize()
-        //設定文字大小
+        // 設定文字大小
         let textFont = UIFont.systemFont(ofSize: 17)
-        //取得每個文字
-//        let tetxString = townArray[indexPath.item]
-//
-//        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
-//        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
+        // 取得每個文字
+        let tetxString = viewModel.getTownArray(indexpath: indexPath)
+        
+        let textMaxSize = CGSize(width: 240, height: CGFloat(MAXFLOAT))
+        let textLabelSize = self.textSize(text:tetxString , font: textFont, maxSize: textMaxSize)
         
         //cell 高度、寬度
-//        cellSize.width = textLabelSize.width + 40
-        cellSize.width = 40
+        cellSize.width = textLabelSize.width + 40
         cellSize.height = 30
         return cellSize
     }
@@ -233,61 +232,41 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     //選到後動作
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//        guard let cell = collectionView.cellForItem(at: indexPath) else {
-//            print("gat cellForItem fail")
-//            return
-//        }
-//
-//        isSelectTag.toggle()
-//
-//        if isSelectTag {
-//            cell.contentView.backgroundColor = .red
-//            //選到的地區
-////            let selectTown = townArray[indexPath.item]
-//            searchData = areaData.filter { (data) in
-//                guard data.town == selectTown else {
-//                    return false
-//                }
-//
-//                return true
-//            }
-//        } else {
-//            cell.contentView.backgroundColor = .clear
-//        }
-//
-//        tableView.reloadData()
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        guard let cell = collectionView.cellForItem(at: indexPath) else {
+            print("gat cellForItem fail")
+            return
+        }
+
+        isSelectTag.toggle()
+
+        if isSelectTag {
+            cell.contentView.backgroundColor = .red
+            // 選到的地區
+            viewModel.filterToSelectTag(indexPath: indexPath)
+            
+        } else {
+            cell.contentView.backgroundColor = .clear
+        }
+
+        tableView.reloadData()
+    }
     
 }
 
 //MARK: - SearchBar 設定
 extension TouristAreaViewController: UISearchBarDelegate {
     
-    func searchBarUisetup() {
-        searchBar.delegate = self
-    }
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-//        isSearch = true
-//        
-//        //高階函數：判斷data資料裡面有無searchText輸入的內容
-//        searchData = areaData.filter { (search) in
-//            guard let searchData = search.name else {
-//                print("filter fial")
-//                return false
-//            }
-//            return searchData.hasPrefix(searchText)
-//        }
-//        
-//        tableView.reloadData()
+        isSearch = true
+        viewModel.searchData(searchText: searchText)
+        tableView.reloadData()
         
     }
     
-    
-    //按下搜尋bar鍵盤的搜尋時，關閉鍵盤
+    // 按下搜尋bar鍵盤的搜尋時，關閉鍵盤
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         self.searchBar.resignFirstResponder()
