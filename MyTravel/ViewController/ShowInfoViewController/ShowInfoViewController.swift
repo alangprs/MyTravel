@@ -13,19 +13,26 @@ import UIKit
 
 class ShowInfoViewController: UIViewController {
     
+    deinit {
+        print("ShowInfoViewController deinit")
+    }
+    
     @IBOutlet weak var topView: TopBarView!
     @IBOutlet weak var tableView: UITableView!
     
-//    var areaData: Info?
+    private var viewModel: ShowInfoVM = {
+        var vm = ShowInfoVM()
+        return vm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        uiSetUp()
+        setupUI()
         
     }
     
-    private func uiSetUp() {
+    private func setupUI() {
         topView.setTitle(title: "景點介紹")
         topView.leftButtonSetup(imageName: "backArrowBlack") {
             self.navigationController?.popViewController(animated: true)
@@ -58,6 +65,8 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let cellItem = CellSelect(rawValue: indexPath.row) else {return UITableViewCell()}
         
+        let attractionsInfo = viewModel.getAttractionsInfo(indexPath: indexPath)
+        
         switch cellItem {
         case .image:
             
@@ -66,11 +75,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-//            if let imageUrl = areaData?.picture1 {
-//                imageCell.convertCell(data: imageUrl)
-//            } else {
-//                print("\(ShowInfoViewController.self) get imageUrl fail")
-//            }
+            if let imageUrl = attractionsInfo?.picture1 {
+                imageCell.convertCell(data: imageUrl)
+            } else {
+                print("\(ShowInfoViewController.self) get imageUrl fail")
+            }
             
             return imageCell
             
@@ -80,11 +89,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-//            if let title = areaData?.name {
-//                titleCell.convertCell(title: title)
-//            } else {
-//                print("\(ShowInfoViewController.self) get title fail")
-//            }
+            if let title = attractionsInfo?.name {
+                titleCell.convertCell(title: title)
+            } else {
+                print("\(ShowInfoViewController.self) get title fail")
+            }
             
             return titleCell
         case .content:
@@ -98,12 +107,12 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
             contentCell.didClickUnfoldButton = {
                 tableView.reloadRows(at: [IndexPath(row: 1, section: 0)], with: .automatic)
             }
-//
-//            if let toldescribe = areaData?.toldescribe {
-//                contentCell.convertCell(toldescribeText: toldescribe)
-//            } else {
-//                print("\(ShowInfoViewController.self) get toldescribe fail")
-//            }
+            
+            if let toldescribe = attractionsInfo?.toldescribe {
+                contentCell.convertCell(toldescribeText: toldescribe)
+            } else {
+                print("\(ShowInfoViewController.self) get toldescribe fail")
+            }
             
             return contentCell
             
@@ -113,11 +122,11 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
             
-//            if let phonenumber = areaData?.tel {
-//                phonenumberCell.convertCell(phoneNumber: phonenumber)
-//            } else {
-//                phonenumberCell.convertCell(phoneNumber: "此景點未提供電話")
-//            }
+            if let phonenumber = attractionsInfo?.tel {
+                phonenumberCell.convertCell(phoneNumber: phonenumber)
+            } else {
+                phonenumberCell.convertCell(phoneNumber: "此景點未提供電話")
+            }
             
             return phonenumberCell
         }

@@ -43,6 +43,7 @@
 		BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */; };
 		BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */; };
 		BED2192628FA860A00FF1AE3 /* TouristAreaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */; };
+		BED2192828FB129400FF1AE3 /* ShowInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192728FB129400FF1AE3 /* ShowInfoVM.swift */; };
 		E7198C216A8A82601410CA85 /* Pods_MyTravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7652CE58D9D887D3ACB8DF1 /* Pods_MyTravel.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataManager.swift; sourceTree = "<group>"; };
 		BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVM.swift; sourceTree = "<group>"; };
 		BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaVM.swift; sourceTree = "<group>"; };
+		BED2192728FB129400FF1AE3 /* ShowInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoVM.swift; sourceTree = "<group>"; };
 		F7652CE58D9D887D3ACB8DF1 /* Pods_MyTravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyTravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -355,6 +357,7 @@
 			children = (
 				BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */,
 				BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */,
+				BED2192728FB129400FF1AE3 /* ShowInfoVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */,
 				128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */,
 				128F1C13279EA26400987B81 /* ViewController.swift in Sources */,
+				BED2192828FB129400FF1AE3 /* ShowInfoVM.swift in Sources */,
 				122237DC27B660C900A772A5 /* LoadingView.swift in Sources */,
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				4D2E5AFE27D782E400D897A3 /* ImageCell.swift in Sources */,

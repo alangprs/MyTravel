@@ -73,6 +73,11 @@ class TouristAreaVM {
         return townArray[indexpath.row]
     }
     
+    /// 取得景點資料
+    public func getAttractionsInfo(attraction: Info) {
+        return tripDataManager.getAttractionsInfo(attraction: attraction)
+    }
+    
     /// 搜尋
     /// - Parameter searchText: 搜尋內容
     public func searchData(searchText: String) {

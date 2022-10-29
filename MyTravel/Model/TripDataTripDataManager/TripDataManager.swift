@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import Combine
 
 class TripDataManager {
     
     static let shard = TripDataManager()
     
     var areaItem: RegionSelect?
+    
+    var attractionsInfoPubalesher = PassthroughSubject<Info,Never>()
     
     // MARK: - 各縣市資料暫存
     
@@ -120,6 +123,13 @@ class TripDataManager {
             return tripData
         }
         
+    }
+    
+    /// 取得景點資料
+    public func getAttractionsInfo(attraction: Info) {
+        
+        attractionsInfoPubalesher
+            .send(attraction)
     }
     
     

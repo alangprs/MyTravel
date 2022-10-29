@@ -178,11 +178,13 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
         let controller = ShowInfoViewController()
         
         // 判斷顯示過濾後資料還是未過濾資料
-//        if isSearch || isSelectTag {
-//            controller.areaData = viewModel.getSearchData()[indexPath.row]
-//        } else {
-//            controller.areaData = viewModel.getSelectData()[indexPath.row]
-//        }
+        if isSearch || isSelectTag {
+            let searchData = viewModel.getSearchData(indexpath: indexPath)
+            viewModel.getAttractionsInfo(attraction: searchData)
+        } else {
+            let selectData = viewModel.getSelectData(indexpath: indexPath)
+            viewModel.getAttractionsInfo(attraction: selectData)
+        }
         
         self.navigationController?.pushViewController(controller, animated: true)
     }
