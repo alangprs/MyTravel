@@ -1,22 +1,28 @@
 PODS:
+  - FMDB (2.7.5):
+    - FMDB/standard (= 2.7.5)
+  - FMDB/standard (2.7.5)
   - SDWebImage (5.13.4):
     - SDWebImage/Core (= 5.13.4)
   - SDWebImage/Core (5.13.4)
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - FMDB (~> 2.7)
   - SDWebImage (~> 5.0)
   - SnapKit (~> 5.6.0)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - FMDB
     - SDWebImage
     - SnapKit
 
 SPEC CHECKSUMS:
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   SDWebImage: e5cc87bf736e60f49592f307bdf9e157189298a3
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: cc92885e24e48698f21469ac9c37ccec435dfa2f
+PODFILE CHECKSUM: c7586e60a474c8e7ca2bfa220145c0b39c324a84
 
 COCOAPODS: 1.11.3
