@@ -40,7 +40,10 @@
 		4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705C27B9074300782EF3 /* TouristAreaCell.xib */; };
 		4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22CA22820283900BAE791 /* PhoneCell.swift */; };
 		4DA22CA52820283900BAE791 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CA32820283900BAE791 /* PhoneCell.xib */; };
+		BECBE343292E697A0070C574 /* FMDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBE342292E697A0070C574 /* FMDBManager.swift */; };
 		BECBE3462931FA760070C574 /* Loger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBE3452931FA760070C574 /* Loger.swift */; };
+		BECBE349293265890070C574 /* RegionTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBE348293265890070C574 /* RegionTable.swift */; };
+		BECBE34B293266460070C574 /* AttractionsTableNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBE34A293266460070C574 /* AttractionsTableNames.swift */; };
 		BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */; };
 		BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */; };
 		BED2192628FA860A00FF1AE3 /* TouristAreaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */; };
@@ -87,7 +90,10 @@
 		4D71705C27B9074300782EF3 /* TouristAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaCell.xib; sourceTree = "<group>"; };
 		4DA22CA22820283900BAE791 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		4DA22CA32820283900BAE791 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
+		BECBE342292E697A0070C574 /* FMDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMDBManager.swift; sourceTree = "<group>"; };
 		BECBE3452931FA760070C574 /* Loger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loger.swift; sourceTree = "<group>"; };
+		BECBE348293265890070C574 /* RegionTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTable.swift; sourceTree = "<group>"; };
+		BECBE34A293266460070C574 /* AttractionsTableNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionsTableNames.swift; sourceTree = "<group>"; };
 		BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataManager.swift; sourceTree = "<group>"; };
 		BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVM.swift; sourceTree = "<group>"; };
 		BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaVM.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		128F1C24279EAF1B00987B81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BECBE347293265630070C574 /* FMDBManager */,
 				BECBE3442931FA660070C574 /* Logger */,
 				BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */,
 				128F1C4127A0E7E100987B81 /* RegionEnum */,
@@ -355,6 +362,16 @@
 			path = Logger;
 			sourceTree = "<group>";
 		};
+		BECBE347293265630070C574 /* FMDBManager */ = {
+			isa = PBXGroup;
+			children = (
+				BECBE342292E697A0070C574 /* FMDBManager.swift */,
+				BECBE34A293266460070C574 /* AttractionsTableNames.swift */,
+				BECBE348293265890070C574 /* RegionTable.swift */,
+			);
+			path = FMDBManager;
+			sourceTree = "<group>";
+		};
 		BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,14 +525,17 @@
 				128F1C0F279EA26400987B81 /* AppDelegate.swift in Sources */,
 				4D2E5AFE27D782E400D897A3 /* ImageCell.swift in Sources */,
 				BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */,
+				BECBE34B293266460070C574 /* AttractionsTableNames.swift in Sources */,
 				128F1C27279EB2B200987B81 /* TopBarView.swift in Sources */,
 				4D71705827B9039B00782EF3 /* TouristAreaViewController.swift in Sources */,
 				128F1C4327A0E80C00987B81 /* RegionEnum.swift in Sources */,
+				BECBE349293265890070C574 /* RegionTable.swift in Sources */,
 				128F1C38279FC12400987B81 /* ViewControllerCell.swift in Sources */,
 				128F1C40279FE07600987B81 /* NetworkAddress.swift in Sources */,
 				128F1C11279EA26400987B81 /* SceneDelegate.swift in Sources */,
 				4D2E5B0427DA278800D897A3 /* TitleCell.swift in Sources */,
 				4D2E5B0827DA2CF900D897A3 /* UItableView.swift in Sources */,
+				BECBE343292E697A0070C574 /* FMDBManager.swift in Sources */,
 				4D2E5B1F27E8B12600D897A3 /* TagCell.swift in Sources */,
 				4D2E5B0C27DCB10500D897A3 /* ContentCell.swift in Sources */,
 				BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */,
