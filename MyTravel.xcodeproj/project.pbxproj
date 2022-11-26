@@ -40,6 +40,7 @@
 		4D71705E27B9074300782EF3 /* TouristAreaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D71705C27B9074300782EF3 /* TouristAreaCell.xib */; };
 		4DA22CA42820283900BAE791 /* PhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA22CA22820283900BAE791 /* PhoneCell.swift */; };
 		4DA22CA52820283900BAE791 /* PhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA22CA32820283900BAE791 /* PhoneCell.xib */; };
+		BECBE3462931FA760070C574 /* Loger.swift in Sources */ = {isa = PBXBuildFile; fileRef = BECBE3452931FA760070C574 /* Loger.swift */; };
 		BED2192128FA6C2E00FF1AE3 /* TripDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */; };
 		BED2192428FA701500FF1AE3 /* ViewControllerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */; };
 		BED2192628FA860A00FF1AE3 /* TouristAreaVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */; };
@@ -86,6 +87,7 @@
 		4D71705C27B9074300782EF3 /* TouristAreaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TouristAreaCell.xib; sourceTree = "<group>"; };
 		4DA22CA22820283900BAE791 /* PhoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneCell.swift; sourceTree = "<group>"; };
 		4DA22CA32820283900BAE791 /* PhoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneCell.xib; sourceTree = "<group>"; };
+		BECBE3452931FA760070C574 /* Loger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loger.swift; sourceTree = "<group>"; };
 		BED2192028FA6C2E00FF1AE3 /* TripDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDataManager.swift; sourceTree = "<group>"; };
 		BED2192328FA701500FF1AE3 /* ViewControllerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerVM.swift; sourceTree = "<group>"; };
 		BED2192528FA860A00FF1AE3 /* TouristAreaVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristAreaVM.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		128F1C24279EAF1B00987B81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BECBE3442931FA660070C574 /* Logger */,
 				BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */,
 				128F1C4127A0E7E100987B81 /* RegionEnum */,
 				128F1C3A279FD62B00987B81 /* NetworkStruct */,
@@ -344,6 +347,14 @@
 			path = PhoneCell;
 			sourceTree = "<group>";
 		};
+		BECBE3442931FA660070C574 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				BECBE3452931FA760070C574 /* Loger.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
 		BED2191F28FA6C1500FF1AE3 /* TripDataTripDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +500,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				128F1C3E279FD71400987B81 /* NetworkStruct-Attractions.swift in Sources */,
+				BECBE3462931FA760070C574 /* Loger.swift in Sources */,
 				128F1C7B27A2679D00987B81 /* HeaderView.swift in Sources */,
 				128F1C13279EA26400987B81 /* ViewController.swift in Sources */,
 				BED2192828FB129400FF1AE3 /* ShowInfoVM.swift in Sources */,
