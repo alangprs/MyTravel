@@ -160,7 +160,7 @@ extension TouristAreaViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "\(TouristAreaCell.self)", for: indexPath) as? TouristAreaCell else {
-            print("TouristAreaViewController Get TouristAreaCell Fail")
+            Logger.log(message: "Get TouristAreaCell Fail")
             return UITableViewCell()
         }
         
@@ -202,7 +202,7 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(TagCell.self)", for: indexPath) as? TagCell else {
-            print("\(TouristAreaViewController.self) get collectionView cell fail")
+            Logger.log(message: "get collectionView cell fail")
             return UICollectionViewCell()
         }
         
@@ -237,7 +237,7 @@ extension TouristAreaViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         guard let cell = collectionView.cellForItem(at: indexPath) else {
-            print("gat cellForItem fail")
+            Logger.log(message: "gat cellForItem fail")
             return
         }
 

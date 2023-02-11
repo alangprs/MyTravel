@@ -40,7 +40,7 @@ class ViewControllerCell: UICollectionViewCell {
         
         //記得把data 轉型內容改成 str資料
         guard let data = data as? RegionSelect else {
-            print("ViewControllerCell convertCell get photoName fail")
+            Logger.log(message: "get photoName fail")
             return
         }
         

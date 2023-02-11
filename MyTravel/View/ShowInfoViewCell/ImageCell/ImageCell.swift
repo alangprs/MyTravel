@@ -20,7 +20,7 @@ class ImageCell: UITableViewCell {
     private func getNetworkImageData(imageUrl: String) {
         
         guard let url = URL(string: imageUrl) else {
-            print("TouristAreaCell getNetworkImageData Get Fail")
+            Logger.log(message: "getNetworkImageData Get Fail")
             self.showInfoImageView.image = UIImage(named: "bear")
             return
         }

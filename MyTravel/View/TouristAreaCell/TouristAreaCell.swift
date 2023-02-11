@@ -25,7 +25,7 @@ class TouristAreaCell: UITableViewCell {
     func convertCell(data: Any) {
         
         guard let info = data as? Info else {
-            print("TouristAreaCell Get info fial")
+            Logger.log(message: "TouristAreaCell Get info fial")
             return
         }
         
@@ -38,16 +38,17 @@ class TouristAreaCell: UITableViewCell {
         
         guard let imageString = imageData.picture1,
               let url = URL(string: imageString) else {
-                  print("TouristAreaCell getNetworkImageData Get Fail")
-                  self.photoImageView.image = UIImage(named: "bear")
-                  return
-              }
+            Logger.log(message: "Get Fail")
+            self.photoImageView.image = UIImage(named: "bear")
+            return
+        }
+        
         //將http轉成https
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
         urlComponents?.scheme = "https"
         guard let urlComponent = urlComponents?.url else { return }
         
-         let session = URLSession.shared.dataTask(with: urlComponent) { data, response, error in
+        let session = URLSession.shared.dataTask(with: urlComponent) { data, response, error in
             if let data = data {
                 DispatchQueue.main.async {
                     self.photoImageView.image = UIImage(data: data)

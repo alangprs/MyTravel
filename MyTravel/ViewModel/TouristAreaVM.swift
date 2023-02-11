@@ -85,7 +85,7 @@ class TouristAreaVM {
         // 高階函數：判斷data資料裡面有無searchText輸入的內容
         searchData = areaData.filter { (search) in
             guard let searchData = search.name else {
-                print("filter fial")
+                Logger.log(message: "filter fial")
                 return false
             }
             return searchData.hasPrefix(searchText)

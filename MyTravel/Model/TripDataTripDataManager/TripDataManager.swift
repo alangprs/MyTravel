@@ -66,7 +66,6 @@ class TripDataManager {
                         completion(.failure(error))
                     }
                 } else {
-                    print("ViewController getNetworkData get data error: \(String(describing: error))")
                     Logger.log(message: "get data error: \(String(describing: error))")
                     
                 }

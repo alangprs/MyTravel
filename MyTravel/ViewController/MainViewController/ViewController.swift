@@ -94,13 +94,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         
         //取得cell
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "\(ViewControllerCell.self)", for: indexPath) as? ViewControllerCell else {
-            print("ViewController collectionView get cell fail")
+            Logger.log(message: "get cell fail")
             return UICollectionViewCell()
         }
         
         //取得定義title內容
         guard let functions = RegionSelect(rawValue: indexPath.item) else {
-            print("ViewController collectionView get functions fail")
+            Logger.log(message: "get functions fail")
             return UICollectionViewCell()
         }
         
@@ -118,7 +118,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         guard let item = RegionSelect(rawValue: indexPath.item) else {
-            print("get RegionSelect error")
+            Logger.log(message: "get RegionSelect error")
             return
         }
         

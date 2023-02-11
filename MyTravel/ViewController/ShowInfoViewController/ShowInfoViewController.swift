@@ -14,7 +14,7 @@ import UIKit
 class ShowInfoViewController: UIViewController {
     
     deinit {
-        print("ShowInfoViewController deinit")
+        Logger.log(message: "ShowInfoViewController deinit")
     }
     
     @IBOutlet weak var topView: TopBarView!
@@ -71,35 +71,35 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
         case .image:
             
             guard let imageCell = tableView.dequeueReusableCell(withIdentifier: "\(ImageCell.self)") as? ImageCell else {
-                print("\(ShowInfoViewController.self) get imageCell fail")
+                Logger.log(message: "get imageCell fail")
                 return UITableViewCell()
             }
             
             if let imageUrl = attractionsInfo?.picture1 {
                 imageCell.convertCell(data: imageUrl)
             } else {
-                print("\(ShowInfoViewController.self) get imageUrl fail")
+                Logger.log(message: "get imageUrl fail")
             }
             
             return imageCell
             
         case .title:
             guard let titleCell = tableView.dequeueReusableCell(withIdentifier: "\(TitleCell.self)") as? TitleCell else {
-                print("\(ShowInfoViewController.self) get titleCell fail")
+                Logger.log(message: "get titleCell fail")
                 return UITableViewCell()
             }
             
             if let title = attractionsInfo?.name {
                 titleCell.convertCell(title: title)
             } else {
-                print("\(ShowInfoViewController.self) get title fail")
+                Logger.log(message: "get title fail")
             }
             
             return titleCell
         case .content:
             // 顯示內容cell
             guard let contentCell = tableView.dequeueReusableCell(withIdentifier: "\(ContentCell.self)") as? ContentCell else {
-                print("\(ShowInfoViewController.self) get content fail")
+                Logger.log(message: "get content fail")
                 return UITableViewCell()
             }
             
@@ -111,14 +111,14 @@ extension ShowInfoViewController: UITableViewDelegate, UITableViewDataSource {
             if let toldescribe = attractionsInfo?.toldescribe {
                 contentCell.convertCell(toldescribeText: toldescribe)
             } else {
-                print("\(ShowInfoViewController.self) get toldescribe fail")
+                Logger.log(message: "get toldescribe fail")
             }
             
             return contentCell
             
         case .phoneNumber:
             guard let phonenumberCell = tableView.dequeueReusableCell(withIdentifier: "\(PhoneCell.self)") as? PhoneCell else {
-                print("get PhonenmberCell fail")
+                Logger.log(message: "get PhonenmberCell fail")
                 return UITableViewCell()
             }
             

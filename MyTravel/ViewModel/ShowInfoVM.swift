@@ -11,7 +11,7 @@ import Combine
 class ShowInfoVM {
     
     deinit {
-        print("ShowInfoVM deinit")
+        Logger.log(message: "ShowInfoVM deinit")
     }
     
     private lazy var tripDataManager = TripDataManager.shard
