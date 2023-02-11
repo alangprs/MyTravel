@@ -54,7 +54,7 @@ class TripDataManager {
                         let searchResponse = try JSONDecoder().decode(SearchResponse.self, from: data)
                         
                         guard let searchResponse = searchResponse.xmlHead.infos.info else {
-                            print("ViewController getNetworkData searchResponse get error")
+                            Logger.log(message: "searchResponse get fail")
                             return
                         }
                         self.tripData = searchResponse
@@ -62,11 +62,12 @@ class TripDataManager {
                         completion(.success(Void()))
                         
                     } catch {
-                        print("ViewController getNetworkData get data catch", error)
+                        Logger.log(message: "get data catch: \(error)")
                         completion(.failure(error))
                     }
                 } else {
-                    print("ViewController getNetworkData get data error")
+                    print("ViewController getNetworkData get data error: \(String(describing: error))")
+                    Logger.log(message: "get data error: \(String(describing: error))")
                     
                 }
             }.resume()

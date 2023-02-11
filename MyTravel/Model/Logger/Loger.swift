@@ -13,7 +13,7 @@ class Logger {
     
     static func log<T>(message: T, method: String = #function) {
         #if DEBUG
-        NSLog("[Ⓦ - Method: \(method), Message: \(message)]")
+        NSLog("[will - Method: \(method), Message: \(message)]")
         #endif
     }
 }
